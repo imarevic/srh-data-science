@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Das Positionsmaß &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,14 +108,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Modul Statistik und Machine Learning Modelle
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Vorwort
  </span>
@@ -648,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Kapitel01/04_Maße_der_Position.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/04_Maße_der_Position.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel01/04_Maße_der_Position.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel01/04_Maße_der_Position.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/04_Maße_der_Position.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Kapitel01/04_Maße_der_Position.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#quartile-und-interquartilsbereich">
    Quartile und Interquartilsbereich
@@ -786,12 +919,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Das Positionsmaß</h1>
@@ -842,11 +974,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="das-positionsmasz">
-<h1>Das Positionsmaß<a class="headerlink" href="#das-positionsmasz" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="das-positionsmasz">
+<h1>Das Positionsmaß<a class="headerlink" href="#das-positionsmasz" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -859,8 +992,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Ein Positionsmaß bestimmt die Position eines einzelnen Wertes im Verhältnis zu anderen Werten in einer Stichprobe oder einem Populationsdatensatz. Anders als der Mittelwert und die Standardabweichung sind auf <strong>Quantilen</strong> basierende deskriptive Maße nicht empfindlich gegenüber dem Einfluss einiger weniger extremer Beobachtungen. Aus diesem Grund werden deskriptive Maße, die auf Quantilen basieren, häufig denjenigen vorgezogen, die auf dem Mittelwert und der Standardabweichung basieren (<span id="id1">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.60).</p>
 <p>Quantile sind Punkte, die den Bereich der Daten in zusammenhängende Intervalle mit gleichen Wahrscheinlichkeiten unterteilen. Bestimmte <a href="https://de.wikipedia.org/wiki/Quantil_(Wahrscheinlichkeitstheorie)">Quantile</a> sind besonders wichtig: Der <strong>Median</strong> eines Datensatzes unterteilt die Daten in zwei gleiche Teile: die unteren <span class="math notranslate nohighlight">\(50 \%\)</span> und die oberen <span class="math notranslate nohighlight">\(50 \%\)</span>. <strong>Quartile</strong> unterteilen die Daten in vier gleiche Teile und <strong>Perzentile</strong> unterteilen sie in Hundertstel oder <span class="math notranslate nohighlight">\(100\)</span> gleiche Teile. Beachten Sie, dass der Median auch das <span class="math notranslate nohighlight">\(50\)</span>-te Perzentil ist. <strong>Dezile</strong> unterteilen einen Datensatz in Zehntel (<span class="math notranslate nohighlight">\(10\)</span> gleiche Teile), und die <strong>Quintile</strong> unterteilen einen Datensatz in Fünftel (<span class="math notranslate nohighlight">\(5\)</span> gleiche Teile). Es gibt immer ein Quantil weniger als die Anzahl der gebildeten Gruppen (z. B. gibt es <strong>3</strong> Quartile, die die Daten in <strong>4</strong> gleiche Teile unterteilen!).</p>
-<div class="section" id="quartile-und-interquartilsbereich">
-<h2>Quartile und Interquartilsbereich<a class="headerlink" href="#quartile-und-interquartilsbereich" title="Permalink to this headline">¶</a></h2>
+<section id="quartile-und-interquartilsbereich">
+<h2>Quartile und Interquartilsbereich<a class="headerlink" href="#quartile-und-interquartilsbereich" title="Permalink to this headline">#</a></h2>
 <p><strong>Quartile</strong> unterteilen einen geordneten Datensatz in <strong>vier gleiche Teile</strong>. Diese drei Maße werden als <strong>erstes Quartil</strong> <span class="math notranslate nohighlight">\((Q1)\)</span>, <strong>zweites Quartil</strong> <span class="math notranslate nohighlight">\((Q2)\)</span> und <strong>drittes Quartil</strong> <span class="math notranslate nohighlight">\((Q3)\)</span> bezeichnet. Das zweite Quartil ist dasselbe wie der Median eines Datensatzes. Das erste Quartil ist der Wert des mittleren Terms unter den Beobachtungen, die kleiner als der Median sind, und das dritte Quartil ist der Wert des mittleren Terms unter den Beobachtungen, die größer als der Median sind (<span id="id2">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.59).</p>
 <p><img alt="Alt-Text" src="../_images/median.png" /></p>
 <p>Ungefähr <span class="math notranslate nohighlight">\(25 \%\)</span> der Werte in einem geordneten Datensatz sind kleiner als <span class="math notranslate nohighlight">\(Q1\)</span> und etwa <span class="math notranslate nohighlight">\(75 \%\)</span> sind größer als <span class="math notranslate nohighlight">\(Q1\)</span>. Das zweite Quartil, <span class="math notranslate nohighlight">\(Q2\)</span>, unterteilt einen geordneten Datensatz in zwei gleiche Teile; daher sind das zweite Quartil und der Median identisch. Etwa <span class="math notranslate nohighlight">\(75 \%\)</span> der Datenwerte sind kleiner als <span class="math notranslate nohighlight">\(Q3\)</span> und etwa <span class="math notranslate nohighlight">\(25 \%\)</span> sind größer als <span class="math notranslate nohighlight">\(Q3\)</span>. Die Differenz zwischen dem dritten Quartil und dem ersten Quartil eines Datensatzes wird als <strong>Interquartilsbereich</strong> (<span class="math notranslate nohighlight">\(IQR\)</span>) bezeichnet (<span id="id3">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.61).</p>
@@ -942,7 +1075,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Häufigkeit&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogramm der Variable Numerus Clausus&quot;</span><span class="p">)</span>
 
-<span class="c1"># Zeiche vertikale Linien bei Q1, Q2, Q3, Q4</span>
+<span class="c1"># Zeichne vertikale Linien bei Q1, Q2, Q3, Q4</span>
 <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">q</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mi">1</span><span class="p">]):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nc_score&quot;</span><span class="p">],</span> <span class="n">q</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;C</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Q</span><span class="si">{</span><span class="n">e</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -950,16 +1083,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16d7da260&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa419339840&gt;
 </pre></div>
 </div>
 <img alt="../_images/04_Maße_der_Position_20_1.png" src="../_images/04_Maße_der_Position_20_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="die-5-punkte-zusammenfassung">
-<h2>Die 5-Punkte-Zusammenfassung<a class="headerlink" href="#die-5-punkte-zusammenfassung" title="Permalink to this headline">¶</a></h2>
-<p>Aus den drei Quartilen <span class="math notranslate nohighlight">\((Q1, Q2, Q3)\)</span>können wir ein Maß für die Lage der Mitte (den Median, <span class="math notranslate nohighlight">\(Q2\)</span>) und ein Maß für die Variation der beiden mittleren Quartale der Daten, <span class="math notranslate nohighlight">\(Q2-Q1\)</span> für die zweite Quartile und <span class="math notranslate nohighlight">\(Q3-Q2\)</span> für die dritte Quartile ableiten. Die drei Quartilen sagen jedoch nichts über die Variation der ersten und vierten Quartile aus.</p>
+</section>
+<section id="die-5-punkte-zusammenfassung">
+<h2>Die 5-Punkte-Zusammenfassung<a class="headerlink" href="#die-5-punkte-zusammenfassung" title="Permalink to this headline">#</a></h2>
+<p>Aus den drei Quartilen <span class="math notranslate nohighlight">\((Q1, Q2, Q3)\)</span>können wir ein Maß für die Lage der Mitte (den Median, <span class="math notranslate nohighlight">\(Q2\)</span>) und ein Maß für die Variation der beiden mittleren Quartale der Daten, <span class="math notranslate nohighlight">\(Q2-Q1\)</span> für die zweiten Quartile und <span class="math notranslate nohighlight">\(Q3-Q2\)</span> für die dritten Quartile ableiten. Die drei Quartile sagen jedoch nichts über die Variation der ersten und vierten Quartile aus.</p>
 <p>Um diese Informationen zu erhalten, beziehen wir auch die Beobachtungen des Minimums und des Maximums mit ein. Die Variation der ersten Quartile kann als Differenz zwischen dem Minimum und der ersten Quartile, <span class="math notranslate nohighlight">\(Q1-Min\)</span>, gemessen werden, und die Variation der vierten Quartile kann als Differenz zwischen der dritten Quartile und dem Maximum, <span class="math notranslate nohighlight">\(Max-Q3\)</span>, gemessen werden. Somit liefern das Minimum, das Maximum und die Quartile zusammen unter anderem Informationen über Zentrum und Variation (<span id="id4">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.62).</p>
 <p>Die so genannte <strong>Tukey-Fünf-Punkte-Zusammenfassung</strong> (nach dem Mathematiker <a href="https://de.wikipedia.org/wiki/John_W._Tukey">John Wilder Tukey</a>) eines Datensatzes besteht aus den Werten <span class="math notranslate nohighlight">\(Min, Q1, Q2, Q3\)</span> und <span class="math notranslate nohighlight">\(Max\)</span> des Datensatzes.</p>
 <p>Die Fünf-Punkte-Zusammenfassung lässt sich in Python durch <code class="docutils literal notranslate"><span class="pre">np.percentile</span></code> und die <code class="docutils literal notranslate"><span class="pre">min()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code> Funktionen berechnen. Zu Demonstrationszwecken berechnen wir die Fünf-Punkte-Zusammenfassung für die Variable <code class="docutils literal notranslate"><span class="pre">nc_score</span></code></p>
@@ -1135,9 +1268,9 @@ Max:    4.0
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="perzentile-und-perzentilrang">
-<h2>Perzentile und Perzentilrang<a class="headerlink" href="#perzentile-und-perzentilrang" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="perzentile-und-perzentilrang">
+<h2>Perzentile und Perzentilrang<a class="headerlink" href="#perzentile-und-perzentilrang" title="Permalink to this headline">#</a></h2>
 <p><strong>Perzentile</strong> unterteilen einen geordneten Datensatz in <span class="math notranslate nohighlight">\(100\)</span> gleiche Teile. Jeder (geordnete) Datensatz hat <span class="math notranslate nohighlight">\(99\)</span> Perzentile, die ihn in <span class="math notranslate nohighlight">\(100\)</span> gleiche Teile unterteilen. Das <strong>k-te</strong> Perzentil wird mit <span class="math notranslate nohighlight">\(P_k\)</span> bezeichnet, wobei <span class="math notranslate nohighlight">\(k\)</span> eine ganze Zahl im Bereich von <span class="math notranslate nohighlight">\(1\)</span> bis <span class="math notranslate nohighlight">\(99\)</span> ist. Das <span class="math notranslate nohighlight">\(25\)</span>-te Perzentil wird zum Beispiel mit <span class="math notranslate nohighlight">\(P_{25}\)</span> bezeichnet.</p>
 <p>So kann das <strong>k-te</strong> Perzentil, <span class="math notranslate nohighlight">\(P_k\)</span>, als ein Wert in einem Datensatz definiert werden, bei dem etwa <span class="math notranslate nohighlight">\(k\%\)</span> der Messungen kleiner als der Wert von <span class="math notranslate nohighlight">\(P_k\)</span> und etwa <span class="math notranslate nohighlight">\((100-k)\)</span> der Messungen größer als der Wert von <span class="math notranslate nohighlight">\(P_k\)</span> sind</p>
 <p>.</p>
@@ -1252,22 +1385,21 @@ eines Datensatzes mit der folgenden Gleichung berechnen:</p>
 </div>
 </div>
 <p>Wenn wir das Ergebnis auf den nächsten ganzzahligen Wert runden, können wir feststellen, dass etwa <span class="math notranslate nohighlight">\(66 \%\)</span> der Studenten in unserem Datensatz einen Numerus clausus von mehr als <span class="math notranslate nohighlight">\(2,5\)</span> hatten.</p>
-</div>
-<div class="section" id="ausreiszer-und-boxplots">
-<h2>Ausreißer und Boxplots<a class="headerlink" href="#ausreiszer-und-boxplots" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ausreiszer">
-<h3>Ausreißer<a class="headerlink" href="#ausreiszer" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ausreiszer-und-boxplots">
+<h2>Ausreißer und Boxplots<a class="headerlink" href="#ausreiszer-und-boxplots" title="Permalink to this headline">#</a></h2>
+<section id="ausreiszer">
+<h3>Ausreißer<a class="headerlink" href="#ausreiszer" title="Permalink to this headline">#</a></h3>
 <p>Bei der Datenanalyse ist die Identifizierung von Ausreißern und damit von Beobachtungen, die deutlich aus dem Gesamtmuster der Daten herausfallen, sehr wichtig. Ein Ausreißer erfordert besondere Aufmerksamkeit. Er kann das Ergebnis eines Mess- oder Aufzeichnungsfehlers, einer Beobachtung aus einer anderen Population oder einer ungewöhnlich extremen Beobachtung sein. Beachten Sie, dass eine extreme Beobachtung nicht zwangsläufig ein Ausreißer sein muss, sondern auch ein Hinweis auf eine Schieflage sein kann (<span id="id5">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.62).</p>
 <p>Wenn wir einen Ausreißer beobachten, sollten wir versuchen, seine Ursache zu ermitteln. Ist ein Ausreißer auf einen Mess- oder Aufzeichnungsfehler zurückzuführen oder gehört er aus einem anderen Grund eindeutig nicht zum Datensatz, kann er einfach entfernt werden. Wenn jedoch keine Erklärung für einen Ausreißer ersichtlich ist, ist die Entscheidung, ob er im Datensatz verbleiben soll, eine schwierige Ermessensentscheidung.</p>
-<p>Als Diagnoseinstrument zum Aufspüren von Beobachtungen, die Ausreißer sein könnten, können wir Quartile und den <strong>IQR</strong> verwenden. Daher definieren wir die <strong>Untergrenze</strong> und die <strong>Obergrenze</strong> eines Datensatzes. Die untere Grenze ist die Zahl, die <span class="math notranslate nohighlight">\(1,5×IQRs\)</span> unter dem ersten Quartil liegt; die obere Grenze ist die Zahl, die <span class="math notranslate nohighlight">\(1,5×IQRs\)</span></p>
-<p>über dem dritten Quartil liegt. Beobachtungen, die unterhalb der Untergrenze oder oberhalb der Obergrenze liegen, sind potenzielle Ausreißer (<span id="id6">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.61).</p>
+<p>Als Diagnoseinstrument zum Aufspüren von Beobachtungen, die Ausreißer sein könnten, können wir Quartile und den <strong>IQR</strong> verwenden. Daher definieren wir die <strong>Untergrenze</strong> und die <strong>Obergrenze</strong> eines Datensatzes. Die untere Grenze ist die Zahl, die <span class="math notranslate nohighlight">\(1,5×IQRs\)</span> unter dem ersten Quartil liegt; die obere Grenze ist die Zahl, die <span class="math notranslate nohighlight">\(1,5×IQRs\)</span> über dem dritten Quartil liegt. Beobachtungen, die unterhalb der Untergrenze oder oberhalb der Obergrenze liegen, sind potenzielle Ausreißer (<span id="id6">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.61).</p>
 <div class="math notranslate nohighlight">
 \[\text{Untere Grenze}=Q1-1,5×IQR\]</div>
 <div class="math notranslate nohighlight">
 \[\text{Obere Grenze}=Q3+1,5×IQR\]</div>
-</div>
-<div class="section" id="boxplots">
-<h3>Boxplots<a class="headerlink" href="#boxplots" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="boxplots">
+<h3>Boxplots<a class="headerlink" href="#boxplots" title="Permalink to this headline">#</a></h3>
 <p>Das Boxplot-Diagramm, auch <strong>Box-and-Whisker-Diagramm</strong> genannt, basiert auf der Fünf-Punkte-Zusammenfassung (<span id="id7">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.62) und kann zur grafischen Darstellung von Zentrum und Variation eines Datensatzes verwendet werden. Diese Diagramme wurden von dem Mathematiker <a href="https://de.wikipedia.org/wiki/John_W._Tukey">John Wilder Tukey</a> erfunden. Es sind mehrere <a href="https://de.wikipedia.org/wiki/Box-Plot">Arten von Boxplots</a> gebräuchlich.</p>
 <p>Box-and-Whisker-Diagramm bieten eine grafische Darstellung der Daten anhand von fünf Maßzahlen: dem Median, dem ersten Quartil, dem dritten Quartil sowie dem kleinsten und dem größten Wert des Datensatzes zwischen der unteren und der oberen Grenze. Der Abstand zwischen den verschiedenen Teilen des Kastens zeigt den Grad der Streuung und Schiefe der Daten an. Durch die Erstellung von Box-and-Whisker-Diagrammen können verschiedene Verteilungen miteinander verglichen werden. Es hilft auch, Ausreißer zu erkennen (<span id="id8">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.62). Box-Plots können entweder horizontal oder vertikal gezeichnet werden.</p>
 <p><img alt="Alt-Text" src="../_images/boxplot.png" />
@@ -1431,7 +1563,7 @@ Die Ränder der Box sind immer das erste und dritte Quartil, und der Bereich inn
 </div>
 </div>
 <p>Interessant, nicht wahr? Die Grafik zeigt, dass Studierende höherer Semester (<span class="math notranslate nohighlight">\(&gt;5\)</span>-tes Semester) beim <em>Numerus clausus</em> tendenziell schlechter abschneiden. Mit anderen Worten: Studierende, die ihr Studium innerhalb der Mindeststudienzeit abschließen, haben tendenziell eine höhere <em>Numerus-clausus</em>-Punktzahl.</p>
-<p>Doch damit sind wir noch nicht fertig. Wir wollen wissen, ob das Geschlecht einen Einfluss auf diese Beobachtung hat. Wir können ganz einfach eine Interaktionsvariable einfügen, indem wir die Variable nach den gruppiert werden soll in eckige Klammern setzen : <code class="docutils literal notranslate"><span class="pre">[var1,</span> <span class="pre">var2]</span></code>. Außerdem verwenden wir das Argument <code class="docutils literal notranslate"><span class="pre">notch</span></code> in der <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> Methode. Wenn sich die notches zweier Diagramme nicht überschneiden, ist dies ein “starker Beweis” dafür, dass sich die beiden Mediane unterscheiden <a class="reference external" href="https://www.worldcat.org/title/graphical-methods-for-data-analysis/oclc/1035370684">Chambers, et al. (1983): Graphical Methods for Data Analysis. Wadsworth &amp; Brooks/Cole, S. 62)</a>.</p>
+<p>Doch damit sind wir noch nicht fertig. Wir wollen wissen, ob das Geschlecht einen Einfluss auf diese Beobachtung hat. Wir können ganz einfach eine Interaktionsvariable einfügen, indem wir die Variable nach den gruppiert werden soll in eckige Klammern setzen : <code class="docutils literal notranslate"><span class="pre">[var1,</span> <span class="pre">var2]</span></code>. Außerdem verwenden wir das Argument <code class="docutils literal notranslate"><span class="pre">notch</span></code> in der <code class="docutils literal notranslate"><span class="pre">boxplot</span></code> Methode. Wenn sich die notches zweier Diagramme nicht überschneiden, ist dies ein “starker Hinweis” dafür, dass sich die beiden Mediane unterscheiden <a class="reference external" href="https://www.worldcat.org/title/graphical-methods-for-data-analysis/oclc/1035370684">Chambers, et al. (1983): Graphical Methods for Data Analysis. Wadsworth &amp; Brooks/Cole, S. 62)</a>.</p>
 <p>Bitte beachten Sie, dass wir eine zusätzliche Zeile Code schreiben müssen, um ein schöneres <span class="math notranslate nohighlight">\(y\)</span>-Label zu erhalten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1458,9 +1590,9 @@ Die Ränder der Box sind immer das erste und dritte Quartil, und der Bereich inn
 </div>
 </div>
 <p>Offensichtlich, und sicherlich nicht unerwartet, gibt es einen Unterschied in der Größe der Studenten zwischen den verschiedenen Gruppen (männlich oder weiblich). Weibliche Studenten sind tendenziell kleiner als männliche, aber wenn wir uns die Extreme ansehen, gibt es in beiden Gruppen große und kleine Personen. Wie bereits erwähnt, müssen wir jedoch zunächst die Daten auf <em>statistische Signifikanz</em> prüfen, um sicher zu sein, dass der beobachtete Größenunterschied nicht nur zufällig ist.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1474,7 +1606,7 @@ Die Ränder der Box sind immer das erste und dritte Quartil, und der Bereich inn
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Kapitel01"
         },
         predefinedOutput: true
@@ -1484,9 +1616,11 @@ Die Ränder der Box sind immer das erste und dritte Quartil, und der Bereich inn
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="03_Streuungsma%C3%9Fe.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1502,24 +1636,28 @@ Die Ränder der Box sind immer das erste und dritte Quartil, und der Bereich inn
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

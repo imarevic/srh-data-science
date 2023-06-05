@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Inferenzstatistik und Konfidenzintervalle &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,10 +108,23 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorwort
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Modul Statistik und Machine Learning Modelle
+  <a class="reference internal" href="../Vorwort.html">
+   Vorwort
   </a>
  </li>
 </ul>
@@ -531,6 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">
+   Lernziele
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">
    Lineare Regression
   </a>
@@ -631,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Kapitel05/01_Inferenzstatistik_und_Konfidenzintervalle.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#die-punkteschatzung">
    Die Punkteschätzung
@@ -795,12 +945,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Inferenzstatistik und Konfidenzintervalle</h1>
@@ -877,11 +1026,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="inferenzstatistik-und-konfidenzintervalle">
-<h1>Inferenzstatistik und Konfidenzintervalle<a class="headerlink" href="#inferenzstatistik-und-konfidenzintervalle" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="inferenzstatistik-und-konfidenzintervalle">
+<h1>Inferenzstatistik und Konfidenzintervalle<a class="headerlink" href="#inferenzstatistik-und-konfidenzintervalle" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -894,12 +1044,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Die <a href="https://de.wikipedia.org/wiki/Statistische_Inferenz">Inferenzstatistik</a> besteht aus Methoden, die Stichprobenergebnisse verwenden, um Entscheidungen oder Vorhersagen über eine Grundgesamtheit zu treffen (<span id="id1">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s.12, <span id="id2">[<a class="reference internal" href="../Literaturverzeichnis.html#id11" title="Günther Bourier. Wahrscheinlichkeitsrechnung und schließende Statistik. Springer, 2002.">Bourier, 2002</a>]</span> s.237). Dieser Bereich der angewandten Statistik ist in allen Situationen von grundlegender Bedeutung, in denen das Wissen über die Grundgesamtheit begrenzt ist oder sogar gänzlich fehlt, was bei den meisten Anwendungen im wirklichen Leben der Fall ist. Außerdem ist es in vielen Fällen einfach zu teuer, sehr zeitaufwändig oder praktisch unmöglich, die Daten aller Mitglieder einer Grundgesamtheit zu erfassen. Daher wird eine Stichprobe aus der Grundgesamtheit gezogen und eine geeignete Stichprobenstatistik berechnet. Auf der Grundlage des Wertes der Stichprobenstatistik wird dann dem entsprechenden (unbekannten) Grundgesamtheitsparameter ein Wert zugewiesen.</p>
 <p>Dieses Verfahren, bei dem Grundgesamtheitsparameter auf der Grundlage von Stichproben ein numerischer Wert zugewiesen wird, wird als <a href="https://de.wikipedia.org/wiki/Sch%C3%A4tzung">Schätzung</a> bezeichnet.Der numerische Wert wird als <strong>Schätzung</strong> des Grundgesamtheitsparameters bezeichnet. Die zur Schätzung eines Populationsparameters verwendete Stichprobenstatistik wird als <strong>Schätzer</strong> bezeichnet (<span id="id3">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s.339).</p>
-<div class="section" id="die-punkteschatzung">
-<h2>Die Punkteschätzung<a class="headerlink" href="#die-punkteschatzung" title="Permalink to this headline">¶</a></h2>
+<section id="die-punkteschatzung">
+<h2>Die Punkteschätzung<a class="headerlink" href="#die-punkteschatzung" title="Permalink to this headline">#</a></h2>
 <p>Bei einer Stichprobe ergibt der Wert der berechneten Stichprobenstatistik eine <strong>Punktschätzung</strong> (<span id="id4">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s.338) des entsprechenden Populationsparameters. Beispielsweise ist der Stichprobenmittelwert (<span class="math notranslate nohighlight">\(\bar{x}\)</span>) eine Punktschätzung des entsprechenden Populationsmittelwerts <span class="math notranslate nohighlight">\(\mu\)</span>, oder die Stichprobenstandardabweichung <span class="math notranslate nohighlight">\(s\)</span> ist eine Punktschätzung für die Standardabweichung der Grundgesamtheit <span class="math notranslate nohighlight">\(\sigma\)</span>. Es ist jedoch zu beachten, dass jede zufällig ausgewählte Stichprobe aus einer Population voraussichtlich einen anderen Wert der Stichprobenstatistik ergibt. Mit anderen Worten, der Stichprobenmittelwert <span class="math notranslate nohighlight">\(\bar{x}\)</span> und die Stichprobenstandardabweichung <span class="math notranslate nohighlight">\(s\)</span> variieren von Stichprobe zu Stichprobe, während der Grundgesamtheitsmittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Grundgesamtheitsstandardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> fest sind. Folglich weicht der Punktschätzer fast immer vom wahren Wert der Grundgesamtheit ab. Daher sollte jeder Punktschätzung eine Information beigefügt werden, die die Genauigkeit dieser Schätzung angibt.</p>
-</div>
-<div class="section" id="die-intervall-schatzung">
-<h2>Die Intervall-Schätzung<a class="headerlink" href="#die-intervall-schatzung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="die-intervall-schatzung">
+<h2>Die Intervall-Schätzung<a class="headerlink" href="#die-intervall-schatzung" title="Permalink to this headline">#</a></h2>
 <p>Anstatt einem Grundgesamtheitsparameter einen einzelnen Wert zuzuordnen, gibt eine <strong>Intervallschätzung</strong> eine probabilistische Aussage, die das gegebene Intervall mit der Wahrscheinlichkeit in Beziehung setzt, dass dieses Intervall tatsächlich den wahren (unbekannten) Grundgesamtheitsparameter enthält.</p>
 <p>Das <strong>Konfidenzniveau</strong> wird a priori gewählt und hängt somit von den Präferenzen des Nutzers ab. Es wird bezeichnet durch</p>
 <div class="math notranslate nohighlight">
@@ -1099,21 +1249,21 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Bei einem Konfidenzniveau von <span class="math notranslate nohighlight">\(99 \% (\alpha=0,01)\)</span> ergibt sich aus der obigen Gleichung</p>
 <div class="math notranslate nohighlight">
 \[CI_{99\%}: \text{Punktschätzung} \pm 2,58 \times \frac{\sigma}{\sqrt{n}}\]</div>
-</div>
-<div class="section" id="die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit">
-<h2>Die Breite eines Konfidenzintervalls und der Kompromiss zwischen Präzision und Genauigkeit<a class="headerlink" href="#die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ein-gedankenexperiment">
-<h3>Ein Gedankenexperiment<a class="headerlink" href="#ein-gedankenexperiment" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit">
+<h2>Die Breite eines Konfidenzintervalls und der Kompromiss zwischen Präzision und Genauigkeit<a class="headerlink" href="#die-breite-eines-konfidenzintervalls-und-der-kompromiss-zwischen-prazision-und-genauigkeit" title="Permalink to this headline">#</a></h2>
+<section id="ein-gedankenexperiment">
+<h3>Ein Gedankenexperiment<a class="headerlink" href="#ein-gedankenexperiment" title="Permalink to this headline">#</a></h3>
 <p>Betrachten wir die durchschnittliche Tagestemperatur in Berlin an einem schönen Sommertag im Juni. Nehmen wir an, wir messen eine mittlere Tagestemperatur von <span class="math notranslate nohighlight">\(19^\circ\text{C}\)</span>. Nun geht es darum, die mittlere Temperatur von morgen zu schätzen.</p>
 <p>Es gibt natürlich mehrere mehr oder weniger ausgeklügelte Ansätze, um diese Aufgabe zu lösen. Man kann in den Datenarchiven nachsehen und die Schätzung auf deskriptive Statistiken stützen, oder man kann sogar einen sehr ausgeklügelten Modellierungsansatz mit einer Unmenge von Modellparametern anwenden, oder man kann einfach eine Schätzung auf der Grundlage des gesunden Menschenverstands vornehmen. Unabhängig davon, welcher Ansatz gewählt wird, wird das Ergebnis immer eine Schätzung sein, die mit einem gewissen Grad an Unsicherheit verbunden ist.</p>
 <p>Um dieser Unsicherheit Rechnung zu tragen, präsentieren wir keine Punktschätzung der morgigen Temperatur, sondern eine Intervallschätzung. Um eine hohe <strong>Genauigkeit</strong> unserer Schätzung zu erreichen, also, dass wir sehr sicher sein wollen, dass unser Intervall den tatsächlichen Wert enthält, wenden wir eine sehr große Fehlermarge an. Wir sagen zum Beispiel, dass die morgige Temperatur <span class="math notranslate nohighlight">\(19 \pm 20^\circ\text{C}\)</span> beträgt. Nach gesundem Menschenverstand würden wir wahrscheinlich zustimmen, dass die durchschnittliche Tagestemperatur an einem Sommertag im Juni in Berlin zwischen <span class="math notranslate nohighlight">\(-1\)</span> und <span class="math notranslate nohighlight">\(39^\circ\text{C}\)</span> liegt.</p>
 <p>Obwohl das Intervall sehr groß ist und vielleicht sogar alle mittleren Tagestemperaturen im Juni für Berlin in der Geschichte der Wetterbeobachtung enthält, besteht immer noch eine kleine Chance, dass wir uns irren. Stellen Sie sich ein natürliches oder vom Menschen verursachtes katastrophales Ereignis wie einen gewaltigen Vulkanausbruch, einen Asteroideneinschlag oder einen Atomkrieg vor; in diesen glücklicherweise sehr unwahrscheinlichen Fällen kann selbst eine so große Fehlermarge nicht garantieren, dass die morgige Durchschnittstemperatur innerhalb des angegebenen Intervalls liegt. Dennoch ist es wichtig zu beachten, dass wir, <strong>um eine hohe Genauigkeit zu erreichen, das Konfidenzniveau und damit die Breite des Konfidenzintervalls erhöhen</strong>.</p>
 <p>OK, wir sagen, dass die morgige Temperatur im Bereich von <span class="math notranslate nohighlight">\(19 \pm 20^\circ\text{C}\)</span> liegt. Aber ist eine solche Aussage, obwohl sie sehr genau ist, überhaupt von Wert? Hilft uns diese Schätzung bei der Entscheidung, welche Kleidung wir morgen tragen sollen? Nein, ganz und gar nicht!</p>
 <p>In vielen Anwendungen sind wir also nicht nur an der <strong>Genauigkeit</strong> interessiert, sondern auch an der <strong>Präzision</strong> einer Schätzung. Eine Schätzung der morgigen Temperatur mit höherer Genauigkeit wäre <span class="math notranslate nohighlight">\(19 \pm 2^\circ\text{C}\)</span>. Eine solche Vorhersage hilft uns zwar bei der Entscheidung, welche Kleidung wir anziehen sollen, aber die Wahrscheinlichkeit, dass wir uns irren, ist viel größer. Daher ist es wichtig, sich zu vergegenwärtigen, dass eine <strong>Erhöhung der Genauigkeit die Breite des Konfidenzintervalls verkleinert und somit das Konfidenzniveau verringert</strong>. Diese Abwägung zwischen Genauigkeit und Präzision bei der Auswahl eines geeigneten Konfidenzniveaus ist in der Praxis sehr wichtig.</p>
-</div>
-</div>
-<div class="section" id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung">
-<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung">
+<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-z-verteilung" title="Permalink to this headline">#</a></h2>
 <p>Die Schätzung des Mittelwerts einer Grundgesamtheit anhand einer Stichprobe ist eine sehr häufige Aufgabe. Wenn die Standardabweichung der Grundgesamtheit (<span class="math notranslate nohighlight">\(\sigma\)</span>) bekannt ist, basiert die Konstruktion eines Konfidenzintervalls für den Grundgesamtheitsmittelwert (<span class="math notranslate nohighlight">\(\mu\)</span>) auf der normalverteilten Stichprobenverteilung der Stichprobenmittelwerte (gewährleistet durch den <a href="https://de.wikipedia.org/wiki/Zentraler_Grenzwertsatz">zentralen Grenzwertsatz</a>). Wenn die Grundgesamtheit, aus der die Stichprobe gezogen wird, nicht normalverteilt ist, sollte der Stichprobenumfang <span class="math notranslate nohighlight">\(n \gt 30\)</span> sein.</p>
 <p>Das <span class="math notranslate nohighlight">\(100(1-α) \%\)</span>ige Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span> ist gegeben durch</p>
 <div class="math notranslate nohighlight">
@@ -1122,9 +1272,9 @@ const thebe_selector_output = ".output, .cell_output"
 \[\text{wobei}\qquad \sigma_{\bar x} = \frac{\sigma}{\sqrt{n}}\]</div>
 <p>Der Wert von <span class="math notranslate nohighlight">\(z^*_{\alpha/2}\)</span> entspricht dem kritischen Wert und wird aus der <a href="https://de.wikipedia.org/wiki/Standardnormalverteilungstabelle">Standardnormaltabelle</a> entnommen oder mit der Funktion <code class="docutils literal notranslate"><span class="pre">norm.ppf()</span></code> in Python berechnet. Der kritische Wert ist eine Größe, die mit dem gewünschten Konfidenzniveau zusammenhängt. Typische Werte für <span class="math notranslate nohighlight">\(z^*_{\alpha/2}\)</span> sind <span class="math notranslate nohighlight">\(1,64\)</span>, <span class="math notranslate nohighlight">\(1,96\)</span> und <span class="math notranslate nohighlight">\(2,58\)</span>, was einem Konfidenzniveau von <span class="math notranslate nohighlight">\(90 \%, 95 \%\)</span> und <span class="math notranslate nohighlight">\(99 \%\)</span> entspricht. Dieser kritische Wert wird mit dem Standardfehler (<span class="math notranslate nohighlight">\(\sigma_{\bar{x}}\)</span>)multipliziert, um die Fehlermarge zu vergrößern oder zu verkleinern.</p>
 <p>Der Standardfehler (<span class="math notranslate nohighlight">\(\sigma_{\bar{x}}\)</span>) ergibt sich aus dem Verhältnis zwischen der Standardabweichung der Grundgesamtheit (<span class="math notranslate nohighlight">\(\sigma\)</span>) und der Quadratwurzel des Stichprobenumfangs <span class="math notranslate nohighlight">\(n\)</span>. Er beschreibt das Ausmaß, in dem die berechnete Stichprobenstatistik von einer Stichprobe zur anderen abweichen kann. Das Produkt aus dem kritischen Wert und dem Standardfehler wird als Fehlermarge bezeichnet. Es ist die Größe, die vom Wert von <span class="math notranslate nohighlight">\(\bar{x}\)</span> subtrahiert und zu diesem addiert wird, um das Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span> zu erhalten.</p>
-</div>
-<div class="section" id="intervallschatzung-fur-einen-mittelwert-die-z-verteilung">
-<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-z-verteilung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="intervallschatzung-fur-einen-mittelwert-die-z-verteilung">
+<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(z\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-z-verteilung" title="Permalink to this headline">#</a></h2>
 <p>Zum besseren Verständnis der Schätzung eines Populationsmittelwerts und der Konstruktion eines Konfidenzintervalls diskutieren wir das Verfahren anhand eines Datensatzes. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Zunächst importieren wir den Datensatz und geben ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1382,9 +1532,9 @@ aus der Wahrscheinlichkeitsverteilung, indem wir die Funktion <code class="docut
 </div></div></div>
 </div>
 <p>Ein interessantes Ergebnis. Der wahre Mittelwert der Grundgesamtheit (<code class="docutils literal notranslate"><span class="pre">f_mean</span></code> = <span class="math notranslate nohighlight">\(163,65\)</span>) wird von allen drei Konfidenzintervallen erfasst. Der Mittelwert unserer Zufallsstichprobe (<code class="docutils literal notranslate"><span class="pre">sample_mean</span></code> = <span class="math notranslate nohighlight">\(162,884\)</span>) war ein recht guter Schätzer.</p>
-</div>
-<div class="section" id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung">
-<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung">
+<h2>Schätzung des Mittelwerts einer Grundgesamtheit - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#schatzung-des-mittelwerts-einer-grundgesamtheit-die-t-verteilung" title="Permalink to this headline">#</a></h2>
 <p>Bisher haben wir uns auf <span class="math notranslate nohighlight">\(\sigma\)</span>, die Standardabweichung der Grundgesamtheit, gestützt, um auf den Mittelwert der Grundgesamtheit zu schließen. Der Populationsparameter <span class="math notranslate nohighlight">\(\sigma\)</span> wird zur Berechnung des Standardfehlers (<span class="math notranslate nohighlight">\(SF=\frac{\sigma}{\sqrt{n}}\)</span>) verwendet, der ein Bestandteil der Fehlermarge ist. Was aber, wenn man die Standardabweichung der Grundgesamtheit nicht kennt, was in der Regel der Fall ist? Man kann die Standardabweichung der Stichprobe, die mit <span class="math notranslate nohighlight">\(s\)</span> bezeichnet wird, als Schätzwert für die Standardabweichung der Grundgesamtheit verwenden.</p>
 <div class="math notranslate nohighlight">
 \[\text{wenn } \  s \approx \sigma \  \text{ dann } \  SF = \frac{s}{\sqrt{n}}\]</div>
@@ -1486,9 +1636,9 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 <p>Bei einem Konfidenzniveau von <span class="math notranslate nohighlight">\(99 \% (\alpha=0,01)\)</span> ergibt sich aus der obigen Gleichung</p>
 <div class="math notranslate nohighlight">
 \[CI_{99\%}: \text{Punktschätzung} \pm 3,05 \times \frac{s}{\sqrt{n}}\]</div>
-</div>
-<div class="section" id="intervallschatzung-fur-einen-mittelwert-die-t-verteilung">
-<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-t-verteilung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="intervallschatzung-fur-einen-mittelwert-die-t-verteilung">
+<h2>Intervallschätzung für einen Mittelwert - Die <span class="math notranslate nohighlight">\(t\)</span>-Verteilung<a class="headerlink" href="#intervallschatzung-fur-einen-mittelwert-die-t-verteilung" title="Permalink to this headline">#</a></h2>
 <p>Wir üben das Verfahren “The One-Mean t-Interval Procedure”, um Konfidenzintervalle mit einem Datensatz zu konstruieren. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Zunächst importieren wir den Datensatz und geben ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1739,8 +1889,8 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 </div>
 </div>
 <p>Nun, ein interessantes Ergebnis. Der wahre Mittelwert der Population (<code class="docutils literal notranslate"><span class="pre">f_mean</span></code> = <span class="math notranslate nohighlight">\(163,65\)</span>) wird von allen drei Konfidenzintervallen erfasst. Der Mittelwert unserer Zufallsstichprobe (<code class="docutils literal notranslate"><span class="pre">sample_mean</span></code> = <span class="math notranslate nohighlight">\(161,4\)</span>) war ein recht guter Schätzer.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1754,7 +1904,7 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Kapitel05"
         },
         predefinedOutput: true
@@ -1764,9 +1914,11 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../Lernziele/Kapitel5_Lernziele.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1782,24 +1934,28 @@ Konfidenzintervall für <span class="math notranslate nohighlight">\(\mu\)</span
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

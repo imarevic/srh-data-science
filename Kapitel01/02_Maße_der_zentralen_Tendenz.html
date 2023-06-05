@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Maße der zentralen Tendenz &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,10 +108,23 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorwort
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Modul Statistik und Machine Learning Modelle
+  <a class="reference internal" href="../Vorwort.html">
+   Vorwort
   </a>
  </li>
 </ul>
@@ -531,6 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">
+   Lernziele
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">
    Lineare Regression
   </a>
@@ -631,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Kapitel01/02_Maße_der_zentralen_Tendenz.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/02_Maße_der_zentralen_Tendenz.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel01/02_Maße_der_zentralen_Tendenz.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel01/02_Maße_der_zentralen_Tendenz.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel01/02_Maße_der_zentralen_Tendenz.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Kapitel01/02_Maße_der_zentralen_Tendenz.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#der-mittelwert">
    Der Mittelwert
@@ -784,12 +934,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Maße der zentralen Tendenz</h1>
@@ -855,11 +1004,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="masze-der-zentralen-tendenz">
-<h1>Maße der zentralen Tendenz<a class="headerlink" href="#masze-der-zentralen-tendenz" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="masze-der-zentralen-tendenz">
+<h1>Maße der zentralen Tendenz<a class="headerlink" href="#masze-der-zentralen-tendenz" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">st</span>
@@ -871,10 +1021,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Um ein Gefühl für einen Datensatz zu bekommen, kann er durch numerische Streuungsmaße beschrieben werden. Es gibt drei Hauptmaße für die <strong>zentrale Tendenz</strong>: den <strong>Mittelwert</strong>, den <strong>Median</strong> und den <strong>Modalwert</strong>; es gibt jedoch auch andere Maße für die zentrale Tendenz, wie z. B. das <strong>harmonische Mittel</strong>, das <strong>gewichtete Mittel</strong> und das <strong>geometrische Mittel</strong>, um nur einige zu nennen.</p>
-<div class="section" id="der-mittelwert">
-<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="der-arithmethische-mittelwert">
-<h3>Der arithmethische Mittelwert<a class="headerlink" href="#der-arithmethische-mittelwert" title="Permalink to this headline">¶</a></h3>
+<section id="der-mittelwert">
+<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this headline">#</a></h2>
+<section id="der-arithmethische-mittelwert">
+<h3>Der arithmethische Mittelwert<a class="headerlink" href="#der-arithmethische-mittelwert" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\text{Mittelwert} = \frac{\text{Summe aller Werte}}{\text{Anzahl aller Werte}}\]</div>
 <p>Das für Stichprobendaten berechnete arithmetische Mittel wird mit <span class="math notranslate nohighlight">\(\bar{x}\)</span> (gelesen als “x strich”) bezeichnet, und das Mittel für Grundgesamtheitsdaten wird mit <span class="math notranslate nohighlight">\(\mu\)</span> (griechischer Buchstabe mu) bezeichnet. Der Mittelwert kann also durch die folgenden Gleichungen ausgedrückt werden:</p>
@@ -884,25 +1034,25 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[\mu=\frac{1}{N} \cdot \sum_{i=1}^N x_i\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\sum_{i=1}^n x_i\)</span> die Summe aller Werte <span class="math notranslate nohighlight">\((x_1,x_2,...,x_n)\)</span>, <span class="math notranslate nohighlight">\(N\)</span> der Umfang der Grundgesamtheit und <span class="math notranslate nohighlight">\(n\)</span> der Stichprobenumfang ist.
-Betrachten wir die Variable <code class="docutils literal notranslate"><span class="pre">height</span></code> im Datensatz <code class="docutils literal notranslate"><span class="pre">students</span></code> und berechnen wir ihr arithmetisches Mittel. Beachten Sie, dass es sich bei dem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz um eine <em>Stichprobe</em> und <strong>nicht</strong> um die Grundgesamtheit aller Studenten handelt. Daher berechnen wir den <span class="math notranslate nohighlight">\(\bar{x}\)</span>, den Stichprobenmittelwert.</p>
+Betrachten wir die Variable <code class="docutils literal notranslate"><span class="pre">height</span></code> im Datensatz <code class="docutils literal notranslate"><span class="pre">students</span></code> und berechnen wir ihr arithmetisches Mittel. Beachten Sie, dass es sich bei dem <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz um eine <em>Stichprobe</em> und <strong>nicht</strong> um die Grundgesamtheit aller Studenten handelt. Daher berechnen wir <span class="math notranslate nohighlight">\(\bar{x}\)</span>, den Stichprobenmittelwert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="c1"># Wende Funktion mean() auf Spalte &#39;height&#39; an und speicher Ergebnis in heigh_mean</span>
+<span class="c1"># Wende Funktion mean() auf Spalte &#39;height&#39; an und speicher Ergebnis in height_mean</span>
 <span class="n">height_mean</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mittelwert des Alters der Studenten: </span><span class="si">{</span><span class="n">height_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mittelwert der Körpergöße der Studenten: </span><span class="si">{</span><span class="n">height_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mittelwert des Alters der Studenten: 171.38075009103048
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mittelwert der Körpergöße der Studenten: 171.38075009103048
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="das-geometrische-mittel">
-<h3>Das geometrische Mittel<a class="headerlink" href="#das-geometrische-mittel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="das-geometrische-mittel">
+<h3>Das geometrische Mittel<a class="headerlink" href="#das-geometrische-mittel" title="Permalink to this headline">#</a></h3>
 <p>Bei der Untersuchung von Phänomenen wie der Inflation oder der Bevölkerungsentwicklung, die mit periodischen Zu- oder Abnahmen einhergehen (so genannte Veränderungsraten), ist das <strong>geometrische Mittel</strong> besser geeignet, um die durchschnittliche Veränderung über den gesamten Untersuchungszeitraum zu ermitteln. Um das geometrische Mittel einer Folge von <span class="math notranslate nohighlight">\(n\)</span> Werten <span class="math notranslate nohighlight">\(x_1,x_2,\dots,x_n \)</span> zu berechnen, werden diese miteinander multipliziert und dann die <span class="math notranslate nohighlight">\(n\)</span>-te Wurzel aus diesem Produkt ermittelt.</p>
 <div class="math notranslate nohighlight">
 \[ \bar{x}_{geo}=\sqrt{x_1\cdot x_2 \cdots  x_n}\]</div>
@@ -919,7 +1069,7 @@ Zunächst schreiben wir unsere Wachstumsraten in eine Liste.</p>
 </div>
 </div>
 </div>
-<p>Nun wenden wir wider besseres Wissen das arithmetische Mittel an: <br></p>
+<p>Nun wenden wir wider besseres Wissens das arithmetische Mittel an: <br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wir verwenden die Funktion `mean()` im Paket `numpy`.</span>
@@ -986,12 +1136,12 @@ Nach einem relativen Wachstum von 0.94 erreicht die Population einen Wert von 48
 </div>
 </div>
 <p>Großartig! Das geometrische Mittel zeigt, dass die Zahl der Arten im Laufe der Zeit mit einer durchschnittlichen Rate von <span class="math notranslate nohighlight">\(0,994\)</span> abnimmt, was <span class="math notranslate nohighlight">\(-0,006 \% \)</span> entspricht. Wir überprüfen dies, indem wir <span class="math notranslate nohighlight">\(5.000\)</span> Bienen (die anfängliche Anzahl der Bienen im Schwarm) mal <span class="math notranslate nohighlight">\(0,994\)</span> für jedes Jahr nehmen; dies ergibt <span class="math notranslate nohighlight">\(4.971\)</span> Bienen nach dem ersten Jahr, <span class="math notranslate nohighlight">\(4.942\)</span> nach dem zweiten Jahr, <span class="math notranslate nohighlight">\(4.913\)</span> nach dem dritten Jahr, <span class="math notranslate nohighlight">\(4.884\)</span> nach dem vierten Jahr und <span class="math notranslate nohighlight">\(4.855\)</span> nach dem fünften Jahr der Beobachtung. Eine perfekte Übereinstimmung! Im Gegensatz zum arithmetischen Mittel gibt das geometrische Mittel die Entwicklung im Vergleich zum Vorjahr nicht zu hoch an! <br> <br></p>
-</div>
-<div class="section" id="der-harmonische-mittelwert">
-<h3>Der harmonische Mittelwert<a class="headerlink" href="#der-harmonische-mittelwert" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="der-harmonische-mittelwert">
+<h3>Der harmonische Mittelwert<a class="headerlink" href="#der-harmonische-mittelwert" title="Permalink to this headline">#</a></h3>
 <p>Der <strong>harmonische Mittelwert</strong> eignet sich am besten für die Ermittlung des Durchschnitts von inversen Größen wie Geschwindigkeit (km/h) oder Bevölkerungsdichte (pop/km2).</p>
 <p>Betrachten Sie das folgende Beispiel:
-Die Entfernung zwischen Ihrem Haus und dem nächsten See beträgt <span class="math notranslate nohighlight">\(40\)</span> km. Sie sind mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(20\)</span> km pro Stunde zum See gefahren und mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(80\)</span> km pro Stunde nach Hause zurückgekehrt. Wie hoch war meine Durchschnittsgeschwindigkeit während der gesamten Fahrt?
+Die Entfernung zwischen Ihrem Haus und dem nächsten See beträgt <span class="math notranslate nohighlight">\(40\)</span> km. Sie sind mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(20\)</span> km pro Stunde zum See gefahren und mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(80\)</span> km pro Stunde nach Hause zurückgekehrt. Wie hoch war die Durchschnittsgeschwindigkeit während der gesamten Fahrt?
 Berechnen wir zunächst das arithmetische Mittel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,7 +1161,7 @@ Berechnen wir zunächst das arithmetische Mittel.</p>
 <p>Das arithmetische Mittel der beiden Geschwindigkeiten, mit denen Sie gefahren sind, beträgt <span class="math notranslate nohighlight">\(50\)</span> km pro Stunde. Dies ist jedoch nicht die richtige Durchschnittsgeschwindigkeit. Es lässt die Tatsache außer Acht, dass Sie mit <span class="math notranslate nohighlight">\(20\)</span> km/h viel länger gefahren sind als mit <span class="math notranslate nohighlight">\(80\)</span> km/h. Um die richtige Durchschnittsgeschwindigkeit zu ermitteln, müssen wir stattdessen das harmonische Mittel berechnen.</p>
 <p>Das harmonische Mittel <span class="math notranslate nohighlight">\(\bar{x}_h\)</span>für die positiven reellen Zahlen <span class="math notranslate nohighlight">\(x_1,x_2,...,x_n\)</span> ist definiert durch</p>
 <div class="math notranslate nohighlight">
-\[\bar{x} = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_i}} \ \  x_i \gt 0, \ \  \forall \ \ i \ \ \]</div>
+\[\bar{x}_h = \frac{n}{\frac{1}{x_1} + \frac{1}{x_2} + \cdots + \frac{1}{x_n}} = \frac{n}{\sum_{i=1}^{n}\frac{1}{x_i}} \ \  x_i \gt 0, \ \  \forall \ \ i \ \ \]</div>
 <p>Wir können die vordefinierte Funktion <code class="docutils literal notranslate"><span class="pre">harmonic_mean</span></code> aus dem Packet <code class="docutils literal notranslate"><span class="pre">statistics</span></code> verwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1027,10 +1177,10 @@ Berechnen wir zunächst das arithmetische Mittel.</p>
 </div>
 </div>
 <p>Aber ist dieses Ergebnis korrekt? Wir versuchen das Ergebnis nachzuvollziehen. Im obigen Beispiel beträgt die Entfernung zwischen dem See und Ihrem Haus <span class="math notranslate nohighlight">\(40\)</span> km. Die Fahrt von A nach B mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(20\)</span> km/h dauert also <span class="math notranslate nohighlight">\(2\)</span> Stunden. Die Fahrt von B nach A mit einer Geschwindigkeit von <span class="math notranslate nohighlight">\(80\)</span> km/h dauert <span class="math notranslate nohighlight">\(0,5\)</span> Stunden. Die Gesamtzeit für die Rundstrecke von <span class="math notranslate nohighlight">\(2 \times 40\)</span> km beträgt <span class="math notranslate nohighlight">\(2,5\)</span> Stunden. Die Durchschnittsgeschwindigkeit beträgt dann <span class="math notranslate nohighlight">\(\frac{80}{2,5}=32\)</span>.</p>
-</div>
-<div class="section" id="der-gewichtete-mittelwert">
-<h3>Der gewichtete Mittelwert<a class="headerlink" href="#der-gewichtete-mittelwert" title="Permalink to this headline">¶</a></h3>
-<p>Es gibt Anwendungen, bei denen bestimmte Werte in einem Datensatz als wichtiger angesehen werden können als andere. Im Allgemeinen gilt für eine Folge von <span class="math notranslate nohighlight">\(n\)</span> Datenwerten <span class="math notranslate nohighlight">\(x_1,x_2,...,x_n\)</span> und ihren entsprechenden Gewichten <span class="math notranslate nohighlight">\(w_1,w_2,...,w_n\)</span>, ist das gewichtete (arithmetische) Mittel gegeben durch</p>
+</section>
+<section id="der-gewichtete-mittelwert">
+<h3>Der gewichtete Mittelwert<a class="headerlink" href="#der-gewichtete-mittelwert" title="Permalink to this headline">#</a></h3>
+<p>Es gibt Anwendungen, bei denen bestimmte Werte in einem Datensatz als wichtiger angesehen werden können als andere. Im Allgemeinen gilt für eine Folge von <span class="math notranslate nohighlight">\(n\)</span> Datenwerten <span class="math notranslate nohighlight">\(x_1,x_2,...,x_n\)</span> und ihren entsprechenden Gewichten <span class="math notranslate nohighlight">\(w_1,w_2,...,w_n\)</span>, ist das gewichtete (arithmetische) Mittel <span class="math notranslate nohighlight">\(\bar{x}_w\)</span> gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[ \bar{x}_w = \frac{\sum_{i=1}^n w_i x_i}{\sum_{i=1}^n w_i} \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(\sum_{i=1}^n w_i x_i\)</span> durch Multiplikation jedes Datenwertes mit seinem Gewicht und anschließender Addition der Produkte ermittelt wird. <br> <br> Um die Noten der Studenten in einem Kurs zu ermitteln, kann ein Dozent beispielsweise der Abschlussprüfung eine dreimal so hohe Gewichtung zuweisen wie den anderen Prüfungen. Ermitteln wir den gewichteten Mittelwert für einen Studenten, der in den ersten beiden Prüfungen <span class="math notranslate nohighlight">\(45\)</span> und <span class="math notranslate nohighlight">\(68\)</span> Punkte und in der Abschlussprüfung <span class="math notranslate nohighlight">\(74\)</span> Punkte erzielt hat.</p>
@@ -1064,9 +1214,9 @@ Berechnen wir zunächst das arithmetische Mittel.</p>
 </div>
 </div>
 <p>Bitte beachten Sie, dass die Gewichtung der Eingabewerte ein Prinzip ist, das auch auf andere Mittelwertmaße anwendbar ist. Zum Beispiel können wir die Eingangsvariable für die Berechnung des geometrischen Mittels gewichten.</p>
-</div>
-<div class="section" id="der-gewichtete-geometrische-mittelwert">
-<h3>Der gewichtete geometrische Mittelwert<a class="headerlink" href="#der-gewichtete-geometrische-mittelwert" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="der-gewichtete-geometrische-mittelwert">
+<h3>Der gewichtete geometrische Mittelwert<a class="headerlink" href="#der-gewichtete-geometrische-mittelwert" title="Permalink to this headline">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\bar{x}_{geo_w}= (\prod_{i=1}^n {x_i}^{w_i})^{1/\sum_{i=1}^n w_i}\]</div>
 <p>wobei <span class="math notranslate nohighlight">\(x_1,x_2,\dots x_n\)</span> den Datenwerten und <span class="math notranslate nohighlight">\(w_1,w_2,\dots w_n\)</span> den Gewichten entsprechen.</p>
@@ -1105,7 +1255,7 @@ Berechnen wir zunächst das arithmetische Mittel.</p>
 </div>
 </div>
 <p>Korrekt, wir erhalten das gleiche Ergebnis!
-Falls wir nun jedes konsekutive mehr gewichten wollen, können wir die Gewichte auf z.B. <span class="math notranslate nohighlight">\([1, 2, 3, 4]\)</span> setzen.</p>
+Falls wir nun jedes konsekutive Element mehr gewichten wollen, können wir die Gewichte auf z.B. <span class="math notranslate nohighlight">\([1, 2, 3, 4]\)</span> setzen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights_bees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -1119,9 +1269,9 @@ Falls wir nun jedes konsekutive mehr gewichten wollen, können wir die Gewichte 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="der-gewichtete-harmonische-mittelwert">
-<h3>Der gewichtete harmonische Mittelwert<a class="headerlink" href="#der-gewichtete-harmonische-mittelwert" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="der-gewichtete-harmonische-mittelwert">
+<h3>Der gewichtete harmonische Mittelwert<a class="headerlink" href="#der-gewichtete-harmonische-mittelwert" title="Permalink to this headline">#</a></h3>
 <p>Schließlich werden wir eine eigene gewichtete harmonische Mittelwertfunktion implementieren. <br> <br> Das gewichtete harmonische Mittel <span class="math notranslate nohighlight">\(\bar{x}\)</span> für die positiven reellen Zahlen <span class="math notranslate nohighlight">\(x_1,x_2,\dots,x_n\)</span> ist durch die folgende Gleichung definiert:</p>
 <div class="math notranslate nohighlight">
 \[ \bar{x}_{hw} = \frac{w_1+w_2 + \cdots + w_n}{\frac{w_1}{x_1} + \frac{w_2}{x_2} + \cdots  + \frac{w_n}{x_n}} = \frac{\sum_{i=1}^n w_i}{\sum_{i=1}^n\frac{w_i}{x_i}} ,\  x_i \gt 0, \ \forall \ \ i \ \ \]</div>
@@ -1685,17 +1835,17 @@ Falls wir nun jedes konsekutive mehr gewichten wollen, können wir die Gewichte 
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="der-median">
-<h2>Der Median<a class="headerlink" href="#der-median" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="der-median">
+<h2>Der Median<a class="headerlink" href="#der-median" title="Permalink to this headline">#</a></h2>
 <p>Ein weiteres sehr wichtiges Maß für die zentrale Tendenz ist der <strong>Median</strong>. Der Median von Messwerten ist der Wert des mittleren Terms in einem Datensatz, der in aufsteigender Reihenfolge geordnet wurde. Der Median unterteilt also einen geordneten Datensatz <strong>in zwei gleiche Teile</strong>.
 Die Berechnung des Medians besteht aus den folgenden zwei Schritten:</p>
 <ol class="simple">
 <li><p>Ordnen Sie den Datensatz in aufsteigender Reihenfolge.</p></li>
 <li><p>Finden Sie den mittleren Term. Der Wert dieses Terms ist der Median.</p></li>
 </ol>
-<p>Wenn die Anzahl der Beobachtungen in einem Datensatz ungerade ist, wird der Median durch den Wert des mittleren Terms in den geordneten Daten bestimmt. Ist die Anzahl der Beobachtungen jedoch gerade, so wird der Median durch den Durchschnitt der Werte der beiden mittleren Terme bestimmt (<span id="id1">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s.52). <br> <br> Lassen Sie uns den Median für die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> des <code class="docutils literal notranslate"><span class="pre">students</span></code>datensatzes auswerten.</p>
+<p>Wenn die Anzahl der Beobachtungen in einem Datensatz ungerade ist, wird der Median durch den Wert des mittleren Terms in den geordneten Daten bestimmt. Ist die Anzahl der Beobachtungen jedoch gerade, so wird der Median durch den Durchschnitt der Werte der beiden mittleren Terme bestimmt (<span id="id1">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s.52). <br> <br> Lassen Sie uns den Median für die Variable <code class="docutils literal notranslate"><span class="pre">age</span></code> des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes auswerten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1704,7 +1854,7 @@ Die Berechnung des Medians besteht aus den folgenden zwei Schritten:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16f7a4ee0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fe02ac11ff0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/02_Maße_der_zentralen_Tendenz_69_1.png" src="../_images/02_Maße_der_zentralen_Tendenz_69_1.png" />
@@ -1736,7 +1886,7 @@ Mittelwert des Alters der Studenten: 22.541570578953756
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16ff4c4c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe0289b6470&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Maße_der_zentralen_Tendenz_73_1.png" src="../_images/02_Maße_der_zentralen_Tendenz_73_1.png" />
@@ -1753,15 +1903,15 @@ Mittelwert des Alters der Studenten: 22.541570578953756
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x16a7dd4b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe028a0bbe0&gt;
 </pre></div>
 </div>
 <img alt="../_images/02_Maße_der_zentralen_Tendenz_75_1.png" src="../_images/02_Maße_der_zentralen_Tendenz_75_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="der-modalwert">
-<h2>Der Modalwert<a class="headerlink" href="#der-modalwert" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="der-modalwert">
+<h2>Der Modalwert<a class="headerlink" href="#der-modalwert" title="Permalink to this headline">#</a></h2>
 <p>In der Statistik stellt der <strong>Modus</strong> den häufigsten Wert in einem Datensatz dar. Der Modalwert ist also der Wert, der in einem Datensatz mit der größten Häufigkeit auftritt <em>(<span id="id3">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s. 53)</em>. In Bezug auf die graphische Häufigkeitsverteilung entspricht der Modus dem Scheitelpunkt bzw. den Scheitelpunkten des Diagramms. Ein großes Manko des Modus ist, dass ein Datensatz keinen oder mehr als einen Modalwert haben kann, während er nur einen Mittelwert und nur einen Median hat. Ein Datensatz, bei dem jeder Wert nur einmal vorkommt, hat zum Beispiel keinen Modus. Ein Datensatz, bei dem nur ein Wert mit der größten Häufigkeit vorkommt, hat nur einen Modus. Der Datensatz wird in diesem Fall als <strong>unimodal</strong> bezeichnet. Ein Datensatz mit zwei Werten, die am häufigsten vorkommen, hat zwei Modi. Die Verteilung wird in diesem Fall als <strong>bimodal</strong> bezeichnet. Wenn mehr als zwei Werte in einem Datensatz am häufigsten vorkommen, dann enthält der Datensatz mehr als zwei Modi und wird als <strong>multimodal</strong> bezeichnet (<span id="id4">[<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">Fahrmeir <em>et al.</em>, 2016</a>]</span> s. 81,83).</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1809,11 +1959,11 @@ Mittelwert des Alters der Studenten: 22.541570578953756
 <img alt="../_images/02_Maße_der_zentralen_Tendenz_78_0.png" src="../_images/02_Maße_der_zentralen_Tendenz_78_0.png" />
 </div>
 </div>
-<p>Anders als der Mittelwert und der Median kann der Modus für quantitative (numerische) und qualitative (kategoriale) Daten verwendet werden. Python verfügt über eine vordefinierte Funktion <code class="docutils literal notranslate"><span class="pre">mode()</span></code> zur Berechnung des Modus im Paket <code class="docutils literal notranslate"><span class="pre">statistics</span></code>. Wir verwenden diese um den Modalwert aller Spaltenwerte des <code class="docutils literal notranslate"><span class="pre">students</span></code>datensatzes zu berechnen.</p>
+<p>Anders als der Mittelwert und der Median kann der Modus für quantitative (numerische) und qualitative (kategoriale) Daten verwendet werden. Python verfügt über eine vordefinierte Funktion <code class="docutils literal notranslate"><span class="pre">mode()</span></code> zur Berechnung des Modus im Paket <code class="docutils literal notranslate"><span class="pre">statistics</span></code>. Wir verwenden diese um den Modalwert aller Spaltenwerte des <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatzes zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../../data/students.csv&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;religion&quot;</span><span class="p">,</span> <span class="s2">&quot;nc.score&quot;</span><span class="p">,</span> <span class="s2">&quot;semester&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]:</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="s2">&quot;religion&quot;</span><span class="p">,</span> <span class="s2">&quot;nc_score&quot;</span><span class="p">,</span> <span class="s2">&quot;semester&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Der Modalwert der Spalte &#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">&#39; ist &#39;</span><span class="si">{</span><span class="n">st</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">])</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1822,7 +1972,7 @@ Mittelwert des Alters der Studenten: 22.541570578953756
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Der Modalwert der Spalte &#39;gender&#39; ist &#39;Male&#39;.
 Der Modalwert der Spalte &#39;age&#39; ist &#39;21&#39;.
 Der Modalwert der Spalte &#39;religion&#39; ist &#39;Catholic&#39;.
-Der Modalwert der Spalte &#39;nc.score&#39; ist &#39;1.18&#39;.
+Der Modalwert der Spalte &#39;nc_score&#39; ist &#39;1.18&#39;.
 Der Modalwert der Spalte &#39;semester&#39; ist &#39;1st&#39;.
 Der Modalwert der Spalte &#39;height&#39; ist &#39;174&#39;.
 Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
@@ -1830,8 +1980,8 @@ Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1845,7 +1995,7 @@ Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Kapitel01"
         },
         predefinedOutput: true
@@ -1855,9 +2005,11 @@ Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_Deskriptive_Statistik.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1873,24 +2025,28 @@ Der Modalwert der Spalte &#39;weight&#39; ist &#39;67.1&#39;.
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

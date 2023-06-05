@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Die Pandas Bibliothek &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,10 +108,23 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorwort
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Modul Statistik und Machine Learning Modelle
+  <a class="reference internal" href="../../Vorwort.html">
+   Vorwort
   </a>
  </li>
 </ul>
@@ -195,6 +223,33 @@ const thebe_selector_output = ".output, .cell_output"
    Die Poisson-Verteilung
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Kapitel02/Aufgaben.html">
+   Übungsaufgaben
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Kapitel02/Hewert.html">
+     Häufigkeiten und Erwartungswert
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Kapitel02/Normierung.html">
+     Normierung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Kapitel02/binomial.html">
+     Binomialverteilung
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -241,8 +296,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel03/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -254,11 +309,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Kapitel03/689599_Regel.html">
-     Die
-     <span class="math notranslate nohighlight">
-      \(68-95-99,7\)
-     </span>
-     -Regel
+     Die 68-95-99,7-Regel
     </a>
    </li>
    <li class="toctree-l2">
@@ -289,8 +340,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel04/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -338,8 +389,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel05/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -415,8 +466,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel06/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -477,8 +528,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel07/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -508,6 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../Lernziele/Kapitel8_Lernziele.html">
+   Lernziele
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../Kapitel08/01_Lineare_Regression.html">
    Lineare Regression
   </a>
@@ -521,8 +577,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel08/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -565,8 +621,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../Kapitel09/Aufgaben.html">
    Übungsaufgaben
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -608,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Aufgaben/Kapitel01/pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FAufgaben/Kapitel01/pandas.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Aufgaben/Kapitel01/pandas.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Aufgaben/Kapitel01/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FAufgaben/Kapitel01/pandas.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Aufgaben/Kapitel01/pandas.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#das-pd-series-objekt">
    Das
@@ -838,12 +1011,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Die Pandas Bibliothek</h1>
@@ -986,11 +1158,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="die-pandas-bibliothek">
-<h1>Die Pandas Bibliothek<a class="headerlink" href="#die-pandas-bibliothek" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="die-pandas-bibliothek">
+<h1>Die Pandas Bibliothek<a class="headerlink" href="#die-pandas-bibliothek" title="Permalink to this headline">#</a></h1>
 <p>Die <a href="https://pandas.pydata.org//">Pandas-Bibliothek</a> wurde 2010 von <a href="https://wesmckinney.com/">Wes McKinney</a> entwickelt. pandas bietet <strong>Datenstrukturen</strong> und <strong>Funktionen</strong> für die Manipulation, Verarbeitung, Bereinigung und Verwertung von Daten. Im Python-Ökosystem ist pandas das modernste Werkzeug für die Arbeit mit tabellarischen oder tabellenähnlichen Daten, bei denen jede Spalte von einem anderen Typ sein kann (<code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">numerisch</span></code>, <code class="docutils literal notranslate"><span class="pre">Datum</span></code> oder andere). pandas bietet ausgefeilte Indizierungsfunktionen, die das Umformen, Zerlegen, Aggregieren und Auswählen von Teilmengen von Daten erleichtern. pandas stützt sich auf andere Pakete, wie <a href="https://numpy.org/">NumPy</a> und <a href="https://scipy.org/">SciPy</a>. Außerdem integriert pandas <a href="https://matplotlib.org/">matplotlib</a> zum Plotten.</p>
 <p>Wenn Sie neu im Umgang mit pandas sind, empfehlen wir Ihnen dringend, die sehr gut geschriebenen <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/tutorials.html">pandas-Tutorials</a> zu besuchen, die alle relevanten Abschnitte für neue Benutzer abdecken, um richtig loszulegen.</p>
 <p>Nach der Installation (Details finden Sie in der <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html">Dokumentation</a>) wird pandas mit dem kanonischen Alias <code class="docutils literal notranslate"><span class="pre">pd</span></code> importiert.</p>
@@ -1013,8 +1186,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>eindimensionales pd.Series-Objekt</p></li>
 <li><p>zweidimensionales pd.DataFrame-Objekt</p></li>
 </ul>
-<div class="section" id="das-pd-series-objekt">
-<h2>Das <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> Objekt<a class="headerlink" href="#das-pd-series-objekt" title="Permalink to this headline">¶</a></h2>
+<section id="das-pd-series-objekt">
+<h2>Das <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> Objekt<a class="headerlink" href="#das-pd-series-objekt" title="Permalink to this headline">#</a></h2>
 <p>Erzeugung von Daten</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1115,8 +1288,8 @@ dtype: int64
 </div>
 </div>
 </div>
-<div class="section" id="pd-series-attribute">
-<h3><code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>-Attribute<a class="headerlink" href="#pd-series-attribute" title="Permalink to this headline">¶</a></h3>
+<section id="pd-series-attribute">
+<h3><code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>-Attribute<a class="headerlink" href="#pd-series-attribute" title="Permalink to this headline">#</a></h3>
 <p>Python-Objekte im Allgemeinen und die <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code> im Besonderen bieten nützliche objektspezifische Attribute.</p>
 <p><em>Attribut</em> -&gt;<code class="docutils literal notranslate"><span class="pre">OBJECT.attribute</span></code></p>
 <p><em>Beachten Sie, dass das Attribut ohne Klammern aufgerufen wird</em></p>
@@ -1200,9 +1373,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pd-series-methoden">
-<h3><code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>-Methoden<a class="headerlink" href="#pd-series-methoden" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pd-series-methoden">
+<h3><code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>-Methoden<a class="headerlink" href="#pd-series-methoden" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -1290,9 +1463,9 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="elementweise-arithmetik">
-<h3>Elementweise Arithmetik<a class="headerlink" href="#elementweise-arithmetik" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="elementweise-arithmetik">
+<h3>Elementweise Arithmetik<a class="headerlink" href="#elementweise-arithmetik" title="Permalink to this headline">#</a></h3>
 <p>Eine sehr nützliche Eigenschaft von <code class="docutils literal notranslate"><span class="pre">pd.Series</span></code>-Objekten ist, dass wir arithmetische Operationen <em>elementweise</em> anwenden können.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1337,9 +1510,9 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="auswahl-und-indizierung">
-<h3>Auswahl und Indizierung<a class="headerlink" href="#auswahl-und-indizierung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="auswahl-und-indizierung">
+<h3>Auswahl und Indizierung<a class="headerlink" href="#auswahl-und-indizierung" title="Permalink to this headline">#</a></h3>
 <p>Eine weitere wichtige Datenoperation ist die Indizierung und Auswahl bestimmter Teilmengen des Datenobjekts. pandas verfügt über einen <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">sehr umfangreichen Satz</a> von Methoden für diese Art von Aufgaben.</p>
 <p>In der einfachsten Form indizieren wir eine Reihe numpy-ähnlich, indem wir den <code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> Operator verwenden, um einen bestimmten <code class="docutils literal notranslate"><span class="pre">Index</span></code> der Reihe auszuwählen.</p>
 <div class="cell docutils container">
@@ -1441,10 +1614,10 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="das-pd-dataframe-objekt">
-<h2>Das <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Objekt<a class="headerlink" href="#das-pd-dataframe-objekt" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="das-pd-dataframe-objekt">
+<h2>Das <code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Objekt<a class="headerlink" href="#das-pd-dataframe-objekt" title="Permalink to this headline">#</a></h2>
 <p>Die primäre Datenstruktur von Pandas ist der <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Es handelt sich um eine zweidimensionale, größenveränderliche, potenziell heterogene tabellarische Datenstruktur mit Zeilen- und Spaltenbeschriftungen. Arithmetische Operationen richten sich sowohl auf Zeilen- als auch auf Spaltenbeschriftungen aus. Grundsätzlich kann man sich den <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> als einen <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>-artigen Container für Seriesobjekte vorstellen.</p>
 <p><strong>Erzeugen eines <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>-Objekts von Grund auf</strong></p>
 <p>pandas erleichtert den Import verschiedener Datentypen und -quellen, aber für dieses Tutorial erzeugen wir ein DataFrame-Objekt von Grund auf.</p>
@@ -1533,8 +1706,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="section" id="pd-dataframe-attribute">
-<h3><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Attribute<a class="headerlink" href="#pd-dataframe-attribute" title="Permalink to this headline">¶</a></h3>
+<section id="pd-dataframe-attribute">
+<h3><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Attribute<a class="headerlink" href="#pd-dataframe-attribute" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -1579,9 +1752,9 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="pd-dataframe-methoden">
-<h3><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Methoden<a class="headerlink" href="#pd-dataframe-methoden" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="pd-dataframe-methoden">
+<h3><code class="docutils literal notranslate"><span class="pre">pd.DataFrame</span></code>-Methoden<a class="headerlink" href="#pd-dataframe-methoden" title="Permalink to this headline">#</a></h3>
 <p><strong>Verschaffen Sie sich einen schnellen Überblick über den Datensatz</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2244,7 +2417,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4l/3kysx_3j3vj4h8l26gg_1q8c0000gn/T/ipykernel_30458/1459321664.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_37323/1459321664.py:1: FutureWarning: Dropping of nuisance columns in DataFrame reductions (with &#39;numeric_only=None&#39;) is deprecated; in a future version this will raise TypeError.  Select only valid columns before calling the reduction.
   df.sum(axis=1)
 </pre></div>
 </div>
@@ -2258,9 +2431,9 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="groupby-methode">
-<h3><code class="docutils literal notranslate"><span class="pre">Groupby</span></code>-Methode<a class="headerlink" href="#groupby-methode" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="groupby-methode">
+<h3><code class="docutils literal notranslate"><span class="pre">Groupby</span></code>-Methode<a class="headerlink" href="#groupby-methode" title="Permalink to this headline">#</a></h3>
 <p><a href="https://www.jstatsoft.org/article/view/v040i01">Hadley Wickham 2011: The Split-Apply-Combine Strategy for Data Analysis, Journal of Statistical Software, 40(1)</a></p>
 <p><img alt="Alt-Text" src="../../_images/split-apply-combine.svg" /></p>
 <div class="cell docutils container">
@@ -2347,7 +2520,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x16af0dd80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7fbbfefdb640&gt;
 </pre></div>
 </div>
 </div>
@@ -2488,9 +2661,9 @@ Name: no_of_songs, dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="familie-von-apply-map-methoden">
-<h3>Familie von <code class="docutils literal notranslate"><span class="pre">apply/map</span></code>-Methoden<a class="headerlink" href="#familie-von-apply-map-methoden" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="familie-von-apply-map-methoden">
+<h3>Familie von <code class="docutils literal notranslate"><span class="pre">apply/map</span></code>-Methoden<a class="headerlink" href="#familie-von-apply-map-methoden" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">apply</span></code> arbeitet zeilenweise (<code class="docutils literal notranslate"><span class="pre">axis=0</span></code>, Standard) / spaltenweise (<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>) auf einem <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">applymap</span></code> arbeitet elementweise auf einem <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
@@ -2624,10 +2797,10 @@ dtype: object
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id1">
-<h2>Auswahl und Indizierung<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id1">
+<h2>Auswahl und Indizierung<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p><strong>Spaltenindex</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3144,9 +3317,9 @@ Name: no_of_songs, dtype: bool
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="manipulation-von-spalten-zeilen-und-bestimmten-eintragen">
-<h2>Manipulation von Spalten, Zeilen und bestimmten Einträgen<a class="headerlink" href="#manipulation-von-spalten-zeilen-und-bestimmten-eintragen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="manipulation-von-spalten-zeilen-und-bestimmten-eintragen">
+<h2>Manipulation von Spalten, Zeilen und bestimmten Einträgen<a class="headerlink" href="#manipulation-von-spalten-zeilen-und-bestimmten-eintragen" title="Permalink to this headline">#</a></h2>
 <p><strong>Hinzufügen einer Zeile zum Datensatz</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3158,7 +3331,7 @@ Name: no_of_songs, dtype: bool
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/4l/3kysx_3j3vj4h8l26gg_1q8c0000gn/T/ipykernel_30458/1527406442.py:3: FutureWarning: Behavior when concatenating bool-dtype and numeric-dtype arrays is deprecated; in a future version these will cast to object dtype (instead of coercing bools to numeric values). To retain the old behavior, explicitly cast bool-dtype arrays to numeric dtype.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_37323/1527406442.py:3: FutureWarning: Behavior when concatenating bool-dtype and numeric-dtype arrays is deprecated; in a future version these will cast to object dtype (instead of coercing bools to numeric values). To retain the old behavior, explicitly cast bool-dtype arrays to numeric dtype.
   df.loc[5] = [&quot;Mickey&quot;, &quot;Mouse&quot;, nan, 1928, nan]
 </pre></div>
 </div>
@@ -3268,7 +3441,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2022, 7, 4, 10, 0, 50, 976363)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2023, 2, 15, 16, 27, 36, 794174)
 </pre></div>
 </div>
 </div>
@@ -3281,7 +3454,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023
 </pre></div>
 </div>
 </div>
@@ -3337,7 +3510,7 @@ dtype: object
       <td>1.0</td>
       <td>1940</td>
       <td>62.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3346,7 +3519,7 @@ dtype: object
       <td>0.0</td>
       <td>1942</td>
       <td>58.0</td>
-      <td>80</td>
+      <td>81</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3355,7 +3528,7 @@ dtype: object
       <td>1.0</td>
       <td>1943</td>
       <td>24.0</td>
-      <td>79</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3364,7 +3537,7 @@ dtype: object
       <td>0.0</td>
       <td>1940</td>
       <td>3.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>5</th>
@@ -3373,7 +3546,7 @@ dtype: object
       <td>NaN</td>
       <td>1928</td>
       <td>NaN</td>
-      <td>94</td>
+      <td>95</td>
     </tr>
   </tbody>
 </table>
@@ -3437,7 +3610,7 @@ dtype: object
       <td>1.0</td>
       <td>1940</td>
       <td>62.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3446,7 +3619,7 @@ dtype: object
       <td>0.0</td>
       <td>1942</td>
       <td>58.0</td>
-      <td>80</td>
+      <td>81</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3455,7 +3628,7 @@ dtype: object
       <td>1.0</td>
       <td>1943</td>
       <td>24.0</td>
-      <td>79</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3464,7 +3637,7 @@ dtype: object
       <td>0.0</td>
       <td>1940</td>
       <td>3.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>5</th>
@@ -3473,18 +3646,18 @@ dtype: object
       <td>NaN</td>
       <td>1928</td>
       <td>NaN</td>
-      <td>94</td>
+      <td>95</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="plotten">
-<h2>Plotten<a class="headerlink" href="#plotten" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="plotten">
+<h2>Plotten<a class="headerlink" href="#plotten" title="Permalink to this headline">#</a></h2>
 <p>Die Plotting-Funktionalität in Pandas basiert auf Matplotlib. Es ist recht praktisch, den Visualisierungsprozess mit der grundlegenden Pandas-Darstellung zu beginnen und zu matplotlib zu wechseln, um die Pandas-Visualisierung anzupassen.</p>
-<div class="section" id="plot-methoden">
-<h3><code class="docutils literal notranslate"><span class="pre">plot</span></code>-Methoden<a class="headerlink" href="#plot-methoden" title="Permalink to this headline">¶</a></h3>
+<section id="plot-methoden">
+<h3><code class="docutils literal notranslate"><span class="pre">plot</span></code>-Methoden<a class="headerlink" href="#plot-methoden" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dieser Aufruf bewirkt, dass die Zahlen unter den Codezellen eingezeichnet werden</span>
@@ -3543,7 +3716,7 @@ dtype: object
       <td>1.0</td>
       <td>1940</td>
       <td>62.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3552,7 +3725,7 @@ dtype: object
       <td>0.0</td>
       <td>1942</td>
       <td>58.0</td>
-      <td>80</td>
+      <td>81</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3561,7 +3734,7 @@ dtype: object
       <td>1.0</td>
       <td>1943</td>
       <td>24.0</td>
-      <td>79</td>
+      <td>80</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3570,7 +3743,7 @@ dtype: object
       <td>0.0</td>
       <td>1940</td>
       <td>3.0</td>
-      <td>82</td>
+      <td>83</td>
     </tr>
     <tr>
       <th>5</th>
@@ -3579,7 +3752,7 @@ dtype: object
       <td>NaN</td>
       <td>1928</td>
       <td>NaN</td>
-      <td>94</td>
+      <td>95</td>
     </tr>
   </tbody>
 </table>
@@ -3592,7 +3765,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;id&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;id&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/pandas_112_1.png" src="../../_images/pandas_112_1.png" />
@@ -3605,7 +3778,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;Frequency&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;Frequency&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/pandas_113_1.png" src="../../_images/pandas_113_1.png" />
@@ -3618,7 +3791,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;id&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;id&#39;&gt;
 </pre></div>
 </div>
 <img alt="../../_images/pandas_114_1.png" src="../../_images/pandas_114_1.png" />
@@ -3664,9 +3837,9 @@ dtype: object
 </div>
 </div>
 <p>Beachten Sie, dass wir nur an der Oberfläche der Plot-Möglichkeiten mit Pandas kratzen. In der Online-Dokumentation von Pandas (<a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html">hier</a>) finden Sie einen umfassenden Überblick.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -3680,7 +3853,7 @@ dtype: object
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Aufgaben/Kapitel01"
         },
         predefinedOutput: true
@@ -3690,9 +3863,11 @@ dtype: object
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="Aufgaben.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -3708,24 +3883,28 @@ dtype: object
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Lineare Regression &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Polynomiale Regression" href="02_Polynomiale_Regression.html" />
-    <link rel="prev" title="Bonferroni Korrektur" href="../Aufgaben/Kapitel07/Bonferroni.html" />
+    <link rel="prev" title="Lernziele" href="../Lernziele/Kapitel8_Lernziele.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,10 +108,23 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorwort
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Modul Statistik und Machine Learning Modelle
+  <a class="reference internal" href="../Vorwort.html">
+   Vorwort
   </a>
  </li>
 </ul>
@@ -530,6 +558,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">
+   Lernziele
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Lineare Regression
@@ -631,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Kapitel08/01_Lineare_Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel08/01_Lineare_Regression.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel08/01_Lineare_Regression.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel08/01_Lineare_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel08/01_Lineare_Regression.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Kapitel08/01_Lineare_Regression.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#einfache-lineare-regression">
    Einfache lineare Regression
@@ -857,12 +1007,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Lineare Regression</h1>
@@ -1001,11 +1150,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lineare-regression">
-<h1>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="lineare-regression">
+<h1>Lineare Regression<a class="headerlink" href="#lineare-regression" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -1020,8 +1170,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>Die <a href="https://de.wikipedia.org/wiki/Regressionsanalyse">Regressionsanalyse</a> ist ein statistisches Verfahren zur Schätzung der Beziehungen zwischen zwei oder mehr Variablen. Die Beziehung wird als <span class="math notranslate nohighlight">\(y \sim x\)</span> oder <span class="math notranslate nohighlight">\(y=f(x)\)</span> modelliert. Beide Modellbeschreibungen besagen, dass die Variable <span class="math notranslate nohighlight">\(y\)</span> eine Funktion von <span class="math notranslate nohighlight">\(x\)</span> ist. Daher wird die Variable <span class="math notranslate nohighlight">\(y\)</span> als <strong>Antwortvariable</strong> oder <strong>abhängige Variable</strong> bezeichnet, während die Variable <span class="math notranslate nohighlight">\(x\)</span> als <strong>Prädikatorvariable</strong> oder <strong>unabhängige Variable</strong> bezeichnet wird.</p>
-<div class="section" id="einfache-lineare-regression">
-<h2>Einfache lineare Regression<a class="headerlink" href="#einfache-lineare-regression" title="Permalink to this headline">¶</a></h2>
+<section id="einfache-lineare-regression">
+<h2>Einfache lineare Regression<a class="headerlink" href="#einfache-lineare-regression" title="Permalink to this headline">#</a></h2>
 <p>In diesem Abschnitt wird eine spezielle Art der Regression behandelt, die als <a href="https://de.wikipedia.org/wiki/Lineare_Einfachregression">einfache lineare Regression</a> bezeichnet wird. In diesem speziellen Fall der Regressionsanalyse wird die Beziehung zwischen der Antwortvariablen <span class="math notranslate nohighlight">\(y\)</span> und der Prädikatorvariablen <span class="math notranslate nohighlight">\(x\)</span> in Form einer <strong>linearen</strong> Gleichung dargestellt</p>
 <div class="math notranslate nohighlight">
 \[y= a + bx\text{,}\]</div>
@@ -1174,9 +1324,9 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[e_i = y_i - \hat y_i\]</div>
 <p>Je nach Datenlage ist <span class="math notranslate nohighlight">\(e_i\)</span> eine negative Zahl, wenn <span class="math notranslate nohighlight">\(y_i\)</span> unterhalb der Regressionslinie liegt, oder eine positive Zahl, wenn <span class="math notranslate nohighlight">\(y_i\)</span> oberhalb der Regressionslinie liegt.</p>
-</div>
-<div class="section" id="parameterschatzung-methode-der-gewohnlichen-kleinsten-quadrate-ols">
-<h2>Parameterschätzung - Methode der gewöhnlichen kleinsten Quadrate (OLS)<a class="headerlink" href="#parameterschatzung-methode-der-gewohnlichen-kleinsten-quadrate-ols" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="parameterschatzung-methode-der-gewohnlichen-kleinsten-quadrate-ols">
+<h2>Parameterschätzung - Methode der gewöhnlichen kleinsten Quadrate (OLS)<a class="headerlink" href="#parameterschatzung-methode-der-gewohnlichen-kleinsten-quadrate-ols" title="Permalink to this headline">#</a></h2>
 <p>Da wir nun die Beschränkungen des deterministischen Modells gelockert und einen Fehlerterm <span class="math notranslate nohighlight">\(\epsilon\)</span> eingeführt haben, stoßen wir auf ein weiteres Problem. Es gibt unendlich viele Regressionsgeraden, die die Spezifikationen des probabilistischen Modells erfüllen.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -1237,9 +1387,9 @@ wird der Fehler <span class="math notranslate nohighlight">\(e_i\)</span> durch 
 <div class="math notranslate nohighlight">
 \[\hat{\beta_0} = \bar y -\hat{\beta_1} \bar x\]</div>
 <p>Die <span class="math notranslate nohighlight">\(OLS\)</span> liefert die Maximum-Likelihood-Schätzung für <span class="math notranslate nohighlight">\(\hat \beta\)</span>, wenn die Parameter die gleiche Varianz haben und unkorreliert sind und die Residuen <span class="math notranslate nohighlight">\(\epsilon\)</span> unkorreliert sind und einer Gaußschen Verteilung folgen (<a href="https://de.wikipedia.org/wiki/Homoskedastizit%C3%A4t_und_Heteroskedastizit%C3%A4t">Homoskedastizität</a>).</p>
-</div>
-<div class="section" id="einfache-lineare-regression-ein-beispiel">
-<h2>Einfache lineare Regression - Ein Beispiel<a class="headerlink" href="#einfache-lineare-regression-ein-beispiel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="einfache-lineare-regression-ein-beispiel">
+<h2>Einfache lineare Regression - Ein Beispiel<a class="headerlink" href="#einfache-lineare-regression-ein-beispiel" title="Permalink to this headline">#</a></h2>
 <p>Um einige praktische Erfahrungen zu sammeln, wenden wir die einfache lineare Regression in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1251,8 +1401,8 @@ wird der Fehler <span class="math notranslate nohighlight">\(e_i\)</span> durch 
 </div>
 <p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <code class="docutils literal notranslate"><span class="pre">stud_id</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">gender</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">weight</span></code>, <code class="docutils literal notranslate"><span class="pre">religion</span></code>, <code class="docutils literal notranslate"><span class="pre">nc_score</span></code>, <code class="docutils literal notranslate"><span class="pre">semester</span></code>, <code class="docutils literal notranslate"><span class="pre">major</span></code>, <code class="docutils literal notranslate"><span class="pre">minor</span></code>, <code class="docutils literal notranslate"><span class="pre">score1</span></code>, <code class="docutils literal notranslate"><span class="pre">score2</span></code>, <code class="docutils literal notranslate"><span class="pre">online_tutorial</span></code>, <code class="docutils literal notranslate"><span class="pre">graduated</span></code>, <code class="docutils literal notranslate"><span class="pre">salary</span></code>.</p>
 <p>Um die <strong>einfache lineare Regression</strong> zu veranschaulichen, untersuchen wir die Beziehung zwischen zwei Variablen, <code class="docutils literal notranslate"><span class="pre">height</span></code> der Studenten als Prädiktorvariable und <code class="docutils literal notranslate"><span class="pre">weight</span></code> der Studierenden als Antwortvariable.</p>
-<div class="section" id="vorbereitung-der-daten">
-<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this headline">¶</a></h3>
+<section id="vorbereitung-der-daten">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this headline">#</a></h3>
 <p>Zur Datenaufbereitung ziehen wir eine Zufallsstichprobe von <span class="math notranslate nohighlight">\(12\)</span> Studenten aus dem Datensatz und erstellen einen Datensatz mit den zwei Variablen von Interesse (<code class="docutils literal notranslate"><span class="pre">height</span></code> und <code class="docutils literal notranslate"><span class="pre">weight</span></code>). Außerdem stellen wir die Daten in Form eines Streudiagramms dar, um die zugrunde liegende lineare Beziehung zwischen den beiden Variablen zu visualisieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1265,18 +1415,18 @@ wird der Fehler <span class="math notranslate nohighlight">\(e_i\)</span> durch 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x170153f70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f225cd58f10&gt;
 </pre></div>
 </div>
 <img alt="../_images/01_Lineare_Regression_36_1.png" src="../_images/01_Lineare_Regression_36_1.png" />
 </div>
 </div>
 <p>Die visuelle Inspektion bestätigt unsere Vermutung, dass die Beziehung zwischen der Größe und der Gewichtsvariable ungefähr linear ist. Mit anderen Worten: Mit zunehmender Größe neigt der einzelne Studierende dazu, ein höheres Gewicht zu haben.</p>
-</div>
-<div class="section" id="schatzung-der-parameter">
-<h3>Schätzung der Parameter<a class="headerlink" href="#schatzung-der-parameter" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="losen-fur-beta-0-und-beta-1-analytisch-in-python">
-<h4>Lösen für <span class="math notranslate nohighlight">\(\beta_0\)</span> und <span class="math notranslate nohighlight">\(\beta_1\)</span> analytisch in Python<a class="headerlink" href="#losen-fur-beta-0-und-beta-1-analytisch-in-python" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="schatzung-der-parameter">
+<h3>Schätzung der Parameter<a class="headerlink" href="#schatzung-der-parameter" title="Permalink to this headline">#</a></h3>
+<section id="losen-fur-beta-0-und-beta-1-analytisch-in-python">
+<h4>Lösen für <span class="math notranslate nohighlight">\(\beta_0\)</span> und <span class="math notranslate nohighlight">\(\beta_1\)</span> analytisch in Python<a class="headerlink" href="#losen-fur-beta-0-und-beta-1-analytisch-in-python" title="Permalink to this headline">#</a></h4>
 <p>Wie im vorherigen Abschnitt gezeigt, können die Parameter <span class="math notranslate nohighlight">\(\beta_0\)</span> und <span class="math notranslate nohighlight">\(\beta_1\)</span> eines einfachen linearen Modells analytisch berechnet werden. Erinnern Sie sich an die Gleichung für ein lineares Modell aus Stichprobendaten</p>
 <div class="math notranslate nohighlight">
 \[\hat y = \beta_0 + \beta_1 x + e \text{,}\]</div>
@@ -1346,9 +1496,9 @@ wird der Fehler <span class="math notranslate nohighlight">\(e_i\)</span> durch 
 \[\text{Gewicht}_{178} = -39,44 + 0,65 \times \text{178} \approx 76 \ \text{kg}\]</div>
 <div class="math notranslate nohighlight">
 \[\text{Gewicht}_{192} = -39,44 + 0,65 \times \text{192} \approx 85 \ \text{kg}\]</div>
-</div>
-<div class="section" id="verwenden-sie-die-funktion-linregress-bzw-ols-in-python-um-beta-0-zu-berechnen-und-beta-1">
-<h4>Verwenden Sie die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> bzw <code class="docutils literal notranslate"><span class="pre">OLS()</span></code> in Python, um <span class="math notranslate nohighlight">\(\beta_0\)</span> zu berechnen und <span class="math notranslate nohighlight">\(\beta_1\)</span><a class="headerlink" href="#verwenden-sie-die-funktion-linregress-bzw-ols-in-python-um-beta-0-zu-berechnen-und-beta-1" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="verwenden-sie-die-funktion-linregress-bzw-ols-in-python-um-beta-0-zu-berechnen-und-beta-1">
+<h4>Verwenden Sie die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> bzw <code class="docutils literal notranslate"><span class="pre">OLS()</span></code> in Python, um <span class="math notranslate nohighlight">\(\beta_0\)</span> zu berechnen und <span class="math notranslate nohighlight">\(\beta_1\)</span><a class="headerlink" href="#verwenden-sie-die-funktion-linregress-bzw-ols-in-python-um-beta-0-zu-berechnen-und-beta-1" title="Permalink to this headline">#</a></h4>
 <p>Zum einen können wir die Funktion <code class="docutils literal notranslate"><span class="pre">linregress()</span></code> nutzen um <span class="math notranslate nohighlight">\(\beta_0\)</span> und <span class="math notranslate nohighlight">\(\beta_1\)</span> zu berechnen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1393,7 +1543,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/srh/lib/python3.10/site-packages/scipy/stats/_stats_py.py:1477: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=12
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/imarevic/.local/lib/python3.10/site-packages/scipy/stats/_stats_py.py:1477: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=12
   warnings.warn(&quot;kurtosistest only valid for n&gt;=20 ... continuing &quot;
 </pre></div>
 </div>
@@ -1409,10 +1559,10 @@ dtype: float64
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   115.9</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 19 Jul 2022</td> <th>  Prob (F-statistic):</th> <td>8.05e-07</td>
+  <th>Date:</th>             <td>Wed, 15 Feb 2023</td> <th>  Prob (F-statistic):</th> <td>8.05e-07</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>23:05:19</td>     <th>  Log-Likelihood:    </th> <td> -22.602</td>
+  <th>Time:</th>                 <td>16:59:43</td>     <th>  Log-Likelihood:    </th> <td> -22.602</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    12</td>      <th>  AIC:               </th> <td>   49.20</td>
@@ -1531,7 +1681,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-6.394884621840902e-14
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7.815970093361102e-14
 </pre></div>
 </div>
 </div>
@@ -1604,7 +1754,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x17028f460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f225cd59240&gt;
 </pre></div>
 </div>
 <img alt="../_images/01_Lineare_Regression_75_1.png" src="../_images/01_Lineare_Regression_75_1.png" />
@@ -1648,7 +1798,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1703251e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f225cb7a860&gt;
 </pre></div>
 </div>
 <img alt="../_images/01_Lineare_Regression_77_1.png" src="../_images/01_Lineare_Regression_77_1.png" />
@@ -1768,14 +1918,14 @@ dtype: float64
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="modelldiagnose">
-<h2>Modelldiagnose<a class="headerlink" href="#modelldiagnose" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+</section>
+<section id="modelldiagnose">
+<h2>Modelldiagnose<a class="headerlink" href="#modelldiagnose" title="Permalink to this headline">#</a></h2>
 <p><a href="https://de.wikipedia.org/wiki/Regressionsdiagnostik">Regressionsdiagnostik</a> beinhaltet eine Reihe von Verfahren, die zur Bewertung der numerischen Ergebnisse einer Regressionsanalyse angewandt werden. Die Verfahren umfassen Methoden der grafischen und quantitativen Analyse oder formale statistische Hypothesentests. In diesem Abschnitt konzentrieren wir uns auf die beiden wichtigsten Methoden, die grafische und die quantitative Analyse. Statistische Hypothesentests für Regressionsprobleme finden Sie im Abschnitt über <em>Hypothesentests</em>.</p>
-<div class="section" id="bestimmheitsmasz">
-<h3>Bestimmheitsmaß<a class="headerlink" href="#bestimmheitsmasz" title="Permalink to this headline">¶</a></h3>
+<section id="bestimmheitsmasz">
+<h3>Bestimmheitsmaß<a class="headerlink" href="#bestimmheitsmasz" title="Permalink to this headline">#</a></h3>
 <p>Der <a href="https://de.wikipedia.org/wiki/Bestimmtheitsma%C3%9F">Bestimmtheitsmaß</a>, auch als <span class="math notranslate nohighlight">\(R^2\)</span> bezeichnet, ist der Anteil der Variation der beobachteten Werte, der durch die Regressionsgleichung erklärt wird. Mit anderen Worten: <span class="math notranslate nohighlight">\(R^2\)</span> ist ein statistisches Maß dafür, wie gut die Regressionsgerade die realen Datenpunkte annähert; es ist also ein Maß für die Anpassungsfähigkeit des Modells.</p>
 <p>Die Gesamtvariation der Antwortvariablen <span class="math notranslate nohighlight">\(y\)</span>
 basiert auf der Abweichung jedes beobachteten Wertes <span class="math notranslate nohighlight">\(y_i\)</span> vom Mittelwert <span class="math notranslate nohighlight">\(\bar y\)</span>. Diese Größe wird als <strong>Gesamtsumme der Quadrate, <span class="math notranslate nohighlight">\(SST\)</span></strong>, bezeichnet und ist gegeben durch</p>
@@ -1792,9 +1942,9 @@ basiert auf der Abweichung jedes beobachteten Wertes <span class="math notransla
 <div class="math notranslate nohighlight">
 \[SSE = \sum (y_i-\hat y_i)^2\text{.}\]</div>
 <p>Erinnern Sie sich, dass die <span class="math notranslate nohighlight">\(SSE\)</span>-Größe minimiert wird, um die beste Regressionslinie zur Beschreibung der Daten zu erhalten, auch bekannt als die <a href="https://de.wikipedia.org/wiki/Methode_der_kleinsten_Quadrate">Methode der gewöhnlichen kleinsten Quadrate</a> (<span class="math notranslate nohighlight">\(OLS\)</span>).</p>
-</div>
-<div class="section" id="die-methode-summary">
-<h3>Die Methode <code class="docutils literal notranslate"><span class="pre">summary()</span></code><a class="headerlink" href="#die-methode-summary" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="die-methode-summary">
+<h3>Die Methode <code class="docutils literal notranslate"><span class="pre">summary()</span></code><a class="headerlink" href="#die-methode-summary" title="Permalink to this headline">#</a></h3>
 <p>Eine grundlegendes Mittel für die Regressionsdiagnose in Python ist die Methode <code class="docutils literal notranslate"><span class="pre">summary()</span></code>. Die Funktion <code class="docutils literal notranslate"><span class="pre">OLS()</span></code> gibt ein Modellobjekt zurück. Dieses <code class="docutils literal notranslate"><span class="pre">OLS()</span></code>-Objekt enthält die Modelleigenschaften, die durch Anwendung der Methode <code class="docutils literal notranslate"><span class="pre">summary()</span></code> untersucht werden können.</p>
 <p>Zu Demonstrationszwecken wird dasselbe Modell wie im vorherigen Abschnitt verwendet.</p>
 <div class="cell docutils container">
@@ -1818,7 +1968,7 @@ basiert auf der Abweichung jedes beobachteten Wertes <span class="math notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/miniconda3/envs/srh/lib/python3.10/site-packages/scipy/stats/_stats_py.py:1477: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=12
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/imarevic/.local/lib/python3.10/site-packages/scipy/stats/_stats_py.py:1477: UserWarning: kurtosistest only valid for n&gt;=20 ... continuing anyway, n=12
   warnings.warn(&quot;kurtosistest only valid for n&gt;=20 ... continuing &quot;
 </pre></div>
 </div>
@@ -1834,10 +1984,10 @@ basiert auf der Abweichung jedes beobachteten Wertes <span class="math notransla
   <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   115.9</td>
 </tr>
 <tr>
-  <th>Date:</th>             <td>Tue, 19 Jul 2022</td> <th>  Prob (F-statistic):</th> <td>8.05e-07</td>
+  <th>Date:</th>             <td>Wed, 15 Feb 2023</td> <th>  Prob (F-statistic):</th> <td>8.05e-07</td>
 </tr>
 <tr>
-  <th>Time:</th>                 <td>23:05:20</td>     <th>  Log-Likelihood:    </th> <td> -22.602</td>
+  <th>Time:</th>                 <td>16:59:43</td>     <th>  Log-Likelihood:    </th> <td> -22.602</td>
 </tr>
 <tr>
   <th>No. Observations:</th>      <td>    12</td>      <th>  AIC:               </th> <td>   49.20</td>
@@ -1884,9 +2034,9 @@ basiert auf der Abweichung jedes beobachteten Wertes <span class="math notransla
 <li><p>Die darauf folgenden Zeilen zeigen die <span class="math notranslate nohighlight">\(F\)</span>-Statistik, die Anzahl der Beobachtungen (Datenpunkte) und Freiheitsgrade.</p></li>
 <li><p>In den nächsten Zeilen werden der Regressionskoeffizient (unter <code class="docutils literal notranslate"><span class="pre">height</span></code>) und der Achsenabschnitt (unter <code class="docutils literal notranslate"><span class="pre">const</span></code>) angegeben, außerdem für jeden von ihnen der Standardfehler, die <span class="math notranslate nohighlight">\(t\)</span>-Werte und die <span class="math notranslate nohighlight">\(p\)</span>-Werte.</p></li>
 </ul>
-</div>
-<div class="section" id="diagnostische-plots">
-<h3>Diagnostische Plots<a class="headerlink" href="#diagnostische-plots" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="diagnostische-plots">
+<h3>Diagnostische Plots<a class="headerlink" href="#diagnostische-plots" title="Permalink to this headline">#</a></h3>
 <p>Es ist wichtig zu wissen, dass Sie eine lineare Regressionsanalyse mit dem Softwarepaket Python oder einer anderen Statistiksoftware durchführen können, die eine Reihe von Zahlen, einschließlich eines <span class="math notranslate nohighlight">\(p\)</span>-Werts, ergibt, so dass Sie sofort feststellen können, ob die Ergebnisse signifikant waren (oder nicht). Sind wir mit der Angabe der Signifikanz der Ergebnisse fertig?</p>
 <p>Nehmen wir einen sehr berühmten Datensatz, das so genannte <a href="https://de.wikipedia.org/wiki/Anscombe-Quartett">Anscombe-Quartett</a>. Das Anscombe-Quartett besteht aus vier Datensätzen und hat die folgende Form:</p>
 <table class="colwidths-auto table">
@@ -2133,9 +2283,9 @@ r2: 0.667
 </div>
 </div>
 <p>Was für eine Überraschung! Das wichtigste Ergebnis der Übung ist die Erkenntnis, dass wir auf viele verschiedene Arten prüfen müssen, ob ein Modell für Daten gut funktioniert. Wir achten auf Regressionsergebnisse wie Steigungskoeffizienten, <span class="math notranslate nohighlight">\(p\)</span>-Werte oder <span class="math notranslate nohighlight">\(R^2\)</span>, die uns sagen, wie gut ein Modell die gegebenen Daten darstellt. Das ist jedoch nicht die ganze Geschichte. Wir müssen auch visuelle Diagnosen anwenden. Die visuelle Inspektion hilft bei der Bewertung, ob die Annahmen der linearen Regression erfüllt sind, oder bei der Ermittlung von <a href="https://de.wikipedia.org/wiki/Ausrei%C3%9Fer">Ausreißern</a> und/oder statistisch bedeutsame Beobachtungen und so genannten <a href="https://de.wikipedia.org/wiki/Pr%C3%A4diktionsmatrix#Hebelwerte">Hebelwerte</a>, die das numerische Ergebnis der Regressionsanalyse beeinflussen.</p>
-</div>
-<div class="section" id="analyse-der-residuen">
-<h3>Analyse der Residuen<a class="headerlink" href="#analyse-der-residuen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="analyse-der-residuen">
+<h3>Analyse der Residuen<a class="headerlink" href="#analyse-der-residuen" title="Permalink to this headline">#</a></h3>
 <p>Ein <a href="https://de.wikipedia.org/wiki/St%C3%B6rgr%C3%B6%C3%9Fe_und_Residuum">Residuum</a> eines beobachteten Wertes ist die Differenz zwischen dem beobachteten Wert und dem geschätzten Wert <span class="math notranslate nohighlight">\((y_i- \hat y_i)\)</span>. Es handelt sich um die Residuen, die nach der Anpassung eines Modells an die Daten übrig bleiben. Die <strong>Summe der quadrierten Vorhersagefehler</strong> (<span class="math notranslate nohighlight">\(SSE\)</span>), auch bekannt als die <strong>Summe der quadrierten Residuen</strong> oder die <strong>Fehlersumme der Quadrate</strong>, ist ein Indikator dafür, wie gut ein Modell die Daten darstellt.</p>
 <p>Wenn die absoluten Residuen, definiert für die Beobachtung <span class="math notranslate nohighlight">\(x_i\)</span> als <span class="math notranslate nohighlight">\(e_i=y_i- \hat y_i\)</span> definiert sind, ungewöhnlich groß sind, kann es sein, dass die Beobachtung aus einer anderen Grundgesamtheit stammt oder dass bei der Durchführung oder Aufzeichnung der Beobachtung ein Fehler aufgetreten ist.</p>
 <div class="cell docutils container">
@@ -2188,7 +2338,6 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">toys</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">e</span><span class="p">,</span> <span class="n">toy</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">toys</span><span class="p">):</span>
-
     <span class="n">_model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">toy</span><span class="p">,</span> <span class="n">toy_x</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
     <span class="n">influence</span> <span class="o">=</span> <span class="n">_model</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
     <span class="n">standardized_residuals</span> <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">resid_studentized_internal</span>
@@ -2236,9 +2385,9 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
 </div>
 </div>
 <p>Die Normalwahrscheinlichkeitsdiagramme, die oft als <a href="https://de.wikipedia.org/wiki/Quantil-Quantil-Diagramm">Q-Q-Diagramme</a> bezeichnet werden, zeigen, dass nur im linken Diagramm die Datenpunkte in etwa auf eine gerade Linie fallen. Dies ist bei den anderen Diagrammen nicht der Fall, was darauf hindeutet, dass die Annahmen des linearen Modells nicht erfüllt sind.</p>
-</div>
-<div class="section" id="ausreiszer-und-einfluszreiche-beobachtungen">
-<h3>Ausreißer und einflußreiche Beobachtungen<a class="headerlink" href="#ausreiszer-und-einfluszreiche-beobachtungen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ausreiszer-und-einfluszreiche-beobachtungen">
+<h3>Ausreißer und einflußreiche Beobachtungen<a class="headerlink" href="#ausreiszer-und-einfluszreiche-beobachtungen" title="Permalink to this headline">#</a></h3>
 <p><strong>Ausreißer</strong> sind Punkte, die aus der Wolke der Datenpunkte herausfallen. Ausreißer, die horizontal von der Mitte der Wolke wegfallen und die Neigung der Regressionslinie nicht beeinflussen, werden als <strong>Leverage-Werte</strong> (Hebelwerte) bezeichnet. Ausreißer, die die Steigung der Regressionsgeraden tatsächlich beeinflussen, werden als <strong>einflußreiche Beobachtungen</strong> bezeichnet, bei denen es sich in der Regel um hohe Leverage-Punkte handelt.</p>
 <p>Wir wollen einen Beispielsdatensatz erstellen, um das Konzept der statistisch bedeutsamen Beobachtungen zu untersuchen.</p>
 <div class="cell tag_hide-input docutils container">
@@ -2301,16 +2450,16 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
 </div>
 </div>
 <p>Die obige Abbildung zeigt deutlich die Auswirkungen der verschiedenen Arten von Ausreißern. Die blaue gestrichelte Linie zeigt die Regressionslinie ohne Ausreißer, die orange gestrichelte Linie zeigt die Regressionslinie, wenn die orangen Hebelpunkte enthalten sind, die grüne gestrichelte Linie zeigt die Regressionslinie, wenn die grünen Ausreisser enthalten sind, und die rote Linie zeigt die Regressionslinie, wenn alle Daten enthalten sind. Offensichtlich haben die grünen Punkte den größten Einfluss auf die Steigung der Regressionslinie!</p>
-<div class="section" id="leverage">
-<h4>Leverage<a class="headerlink" href="#leverage" title="Permalink to this headline">¶</a></h4>
+<section id="leverage">
+<h4>Leverage<a class="headerlink" href="#leverage" title="Permalink to this headline">#</a></h4>
 <p>Die <a href="https://de.wikipedia.org/wiki/Pr%C3%A4diktionsmatrix#Hebelwerte">Leverage</a> einer Beobachtung zeigt an, ob sie das Regressionsmodell beeinflussen kann. Diese Beobachtungen sind nicht notwendigerweise ein Fehler, aber sie sollten identifiziert und überprüft werden. Die Leverage wird durch den <strong><span class="math notranslate nohighlight">\(H\)</span>-Wert</strong> gemessen, der den Gesamteinfluss einer einzelnen Beobachtung auf die Modellvorhersagen misst. Der <span class="math notranslate nohighlight">\(H\)</span>-Wert nimmt Werte zwischen <span class="math notranslate nohighlight">\(0\)</span> und <span class="math notranslate nohighlight">\(1\)</span> an. Ein Punkt mit einer Hebelwirkung von Null hat keinen Einfluss auf das Regressionsmodell. Je höher der <span class="math notranslate nohighlight">\(H\)</span>-Wert ist, desto größer ist der Einfluss des betreffenden Punktes auf das Regressionsmodell.</p>
-</div>
-<div class="section" id="cook-abstand">
-<h4>Cook-Abstand<a class="headerlink" href="#cook-abstand" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="cook-abstand">
+<h4>Cook-Abstand<a class="headerlink" href="#cook-abstand" title="Permalink to this headline">#</a></h4>
 <p>Eine weitere Methode zur Erfassung einflussreicher Ausreißer ist der <a href="https://de.wikipedia.org/wiki/Cook-Abstand">Cook-Abstand</a>. Das Maß ist eine Kombination aus Leverage und Residuen der einzelnen Beobachtungen. Je höher die Hebelwirkung und der Rückstand, desto größer ist der Cook-Abstand. Normalerweise werden Punkte mit einem Cook-Abstand von mehr als <span class="math notranslate nohighlight">\(1\)</span> als einflussreich eingestuft. In Python wird der Cook-Abstand mit dem Attribut <code class="docutils literal notranslate"><span class="pre">cooks.distance</span></code> berechnet.</p>
-</div>
-<div class="section" id="andere-nutzliche-regressionsdiagnosen">
-<h4>Andere nützliche Regressionsdiagnosen<a class="headerlink" href="#andere-nutzliche-regressionsdiagnosen" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="andere-nutzliche-regressionsdiagnosen">
+<h4>Andere nützliche Regressionsdiagnosen<a class="headerlink" href="#andere-nutzliche-regressionsdiagnosen" title="Permalink to this headline">#</a></h4>
 <p>Weitere nützliche Werkzeuge für die Regressionsanalysediagnose sind DFFITS (“difference in fit(s)”), die angibt, wie sehr eine Beobachtung den zugehörigen angepassten Wert beeinflusst, und die DFBETAS, die die Änderung der geschätzten Parameter angibt, wenn eine Beobachtung im Verhältnis zu ihrem Standardfehler ausgeschlossen wird.</p>
 <p>In Paket statsmodels kann auf diese die genanten und weitere diagnostische Verfahren sehr leicht über die Methdode <code class="docutils literal notranslate"><span class="pre">get_influence().summary_frame()</span></code>zurückgegriffen werden.</p>
 <div class="cell docutils container">
@@ -2506,10 +2655,10 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
 <img alt="../_images/01_Lineare_Regression_134_0.png" src="../_images/01_Lineare_Regression_134_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2523,7 +2672,7 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Kapitel08"
         },
         predefinedOutput: true
@@ -2533,14 +2682,16 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../Aufgaben/Kapitel07/Bonferroni.html" title="previous page">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Lernziele/Kapitel8_Lernziele.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Bonferroni Korrektur</p>
+            <p class="prev-next-title">Lernziele</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="02_Polynomiale_Regression.html" title="next page">
@@ -2551,24 +2702,28 @@ und die Variation um <span class="math notranslate nohighlight">\(0\)</span> sol
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

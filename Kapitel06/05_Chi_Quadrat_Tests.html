@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Chi-Quadrat-Tests &#8212; Modul Statistik und Machine Learning Modelle</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -39,12 +38,13 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -64,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -73,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -93,10 +108,23 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Modul Statistik und Machine Learning Modelle
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Vorwort
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Modul Statistik und Machine Learning Modelle
+  <a class="reference internal" href="../Vorwort.html">
+   Vorwort
   </a>
  </li>
 </ul>
@@ -531,6 +559,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../Lernziele/Kapitel8_Lernziele.html">
+   Lernziele
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Kapitel08/01_Lineare_Regression.html">
    Lineare Regression
   </a>
@@ -631,110 +664,227 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Kapitel06/05_Chi_Quadrat_Tests.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/ixianslab/srh-data-science"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/05_Chi_Quadrat_Tests.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel06/05_Chi_Quadrat_Tests.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/ixianslab/srh-data-science/main?urlpath=tree/notebooks/Kapitel06/05_Chi_Quadrat_Tests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/ixianslab/srh-data-science/issues/new?title=Issue%20on%20page%20%2FKapitel06/05_Chi_Quadrat_Tests.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Kapitel06/05_Chi_Quadrat_Tests.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#chi-2-verteilung">
    <span class="math notranslate nohighlight">
@@ -813,12 +963,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Chi-Quadrat-Tests</h1>
@@ -913,11 +1062,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="chi-quadrat-tests">
-<h1>Chi-Quadrat-Tests<a class="headerlink" href="#chi-quadrat-tests" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="chi-quadrat-tests">
+<h1>Chi-Quadrat-Tests<a class="headerlink" href="#chi-quadrat-tests" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -931,8 +1081,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>Neben Inferenzverfahren für Hypothesentests für Grundgesamtheitsparameter wie den Mittelwert <span class="math notranslate nohighlight">\(\mu\)</span> und die Standardabweichung <span class="math notranslate nohighlight">\(\sigma\)</span> gibt es statistische Verfahren, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen. Diese Schlussfolgerungsmethoden beruhen auf der Chi-Quadrat-Verteilung (<span class="math notranslate nohighlight">\(\chi^2\)</span>) und werden daher als <span class="math notranslate nohighlight">\(\chi^2\)</span>-Tests bezeichnet.</p>
 <p>Im folgenden Abschnitt werden der <strong>Chi-Quadrat-Anpassungstest</strong>, ein Hypothesentest, der angewandt wird, um Rückschlüsse auf die Verteilung einer Variablen zu ziehen, und der <strong>Chi-Quadrat-Unabhängigkeitstest</strong>, ein Hypothesentest, der angewandt wird, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen einer Grundgesamtheit besteht, erörtert.</p>
-<div class="section" id="chi-2-verteilung">
-<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung<a class="headerlink" href="#chi-2-verteilung" title="Permalink to this headline">¶</a></h2>
+<section id="chi-2-verteilung">
+<h2><span class="math notranslate nohighlight">\(\chi^2\)</span>-Verteilung<a class="headerlink" href="#chi-2-verteilung" title="Permalink to this headline">#</a></h2>
 <p><strong>Grundlegende Eigenschaften von <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurven (<span id="id1">Fahrmeir <em>et al.</em> [<a class="reference internal" href="../Literaturverzeichnis.html#id3" title="Ludwig Fahrmeir, Christian Heumann, Rita Künstler, Iris Pigeot, and Gerhard Tutz. Statistik : Der Weg zur Datenanalyse. Springer-Verlag, 2016.">2016</a>]</span> s.279)</strong></p>
 <ul class="simple">
 <li><p>Die Gesamtfläche unter einer <span class="math notranslate nohighlight">\(\chi^2\)</span>-Kurve ist gleich <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
@@ -962,15 +1112,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x16f438880&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x7fe7b4c89060&gt;
 </pre></div>
 </div>
 <img alt="../_images/05_Chi_Quadrat_Tests_7_1.png" src="../_images/05_Chi_Quadrat_Tests_7_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="chi-quadrat-test-auf-anpassungsgute">
-<h2>Chi-Quadrat-Test auf Anpassungsgüte<a class="headerlink" href="#chi-quadrat-test-auf-anpassungsgute" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="chi-quadrat-test-auf-anpassungsgute">
+<h2>Chi-Quadrat-Test auf Anpassungsgüte<a class="headerlink" href="#chi-quadrat-test-auf-anpassungsgute" title="Permalink to this headline">#</a></h2>
 <p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest</strong> wird angewandt, um Hypothesentests über die Verteilung einer qualitativen (kategorialen) Variable oder einer diskreten quantitativen Variable, die nur endlich viele mögliche Werte hat, durchzuführen.</p>
 <p>Die grundlegende Logik des <span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest besteht darin, die Häufigkeiten von zwei Variablen zu vergleichen. Wir vergleichen die <strong>beobachteten Häufigkeiten</strong> einer Stichprobe mit den <strong>erwarteten Häufigkeiten</strong>.</p>
 <p>Betrachten wir ein einfaches Beispiel:</p>
@@ -1142,7 +1292,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;CDU: 57&#39;, &#39;SPD: 26&#39;, &#39;Sonstige: 40&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;SPD: 26&#39;, &#39;CDU: 57&#39;, &#39;Sonstige: 40&#39;]
 </pre></div>
 </div>
 </div>
@@ -1239,8 +1389,8 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="math notranslate nohighlight">
 \[\chi^2=\sum \frac{(O-E)^2}{E} \approx2,729\]</div>
 <p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich. Dies führt zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik und unterstützt somit <span class="math notranslate nohighlight">\(H_0\)</span>. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>.</p>
-<div class="section" id="chi-2-anpassungstest-ein-beispiel">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel<a class="headerlink" href="#chi-2-anpassungstest-ein-beispiel" title="Permalink to this headline">¶</a></h3>
+<section id="chi-2-anpassungstest-ein-beispiel">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Anpassungstest: Ein Beispiel<a class="headerlink" href="#chi-2-anpassungstest-ein-beispiel" title="Permalink to this headline">#</a></h3>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1277,9 +1427,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="../_images/05_Chi_Quadrat_Tests_38_0.png" src="../_images/05_Chi_Quadrat_Tests_38_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="vorbereitung-der-daten">
-<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="vorbereitung-der-daten">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#vorbereitung-der-daten" title="Permalink to this headline">#</a></h3>
 <p>Wir beginnen mit der Datenexploration und der Datenaufbereitung.</p>
 <p>Zunächst wollen wir wissen, welche Kategorien im Datensatz vorhanden sind. Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">unique()</span></code> an, die die einzelnen Spaltennamen (Kategorien) ausgibt.</p>
 <div class="cell docutils container">
@@ -1551,9 +1701,9 @@ Name: religion, dtype: int64
 </div>
 <p>Sobald wir die erwarteten Häufigkeiten kennen, müssen wir zwei Annahmen überprüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
 <p>Perfekt, jetzt sind wir fertig! Der Datensatz ist bereit für die Analyse mit dem <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest zu analysieren. Erinnern Sie sich an die Frage, an der wir interessiert sind: <strong>Ist die Religion unter den Studierenden gleichmäßig verteilt, verglichen mit der Verteilung der Religion in der Bevölkerung der Europäischen Union?</strong></p>
-</div>
-<div class="section" id="uberprufung-der-hypothesen">
-<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="uberprufung-der-hypothesen">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#uberprufung-der-hypothesen" title="Permalink to this headline">#</a></h3>
 <p>Zur Durchführung des <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstests folgen wir dem schrittweisen Durchführungsverfahren für Hypothesentests. Der <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest folgt demselben schrittweisen Verfahren wie Hypothesentests für den Grundgesamtheitsmittelwert.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1641,9 +1791,9 @@ Name: religion, dtype: int64
 <p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,01\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(1 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
 <p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
 <p><span class="math notranslate nohighlight">\(p=6,8110175 \cdot 10^{-10}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(1 \%\)</span> lassen die Daten den Schluss zu, dass die Religionsverteilung unter den Studenten von der Religionsverteilung der Bevölkerung der Europäischen Union abweicht.</p>
-</div>
-<div class="section" id="hypothesentests-in-python">
-<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="hypothesentests-in-python">
+<h3>Hypothesentests in Python<a class="headerlink" href="#hypothesentests-in-python" title="Permalink to this headline">#</a></h3>
 <p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungstest in Python manuell durchgeführt. Sehr cool, aber jetzt wiederholen wir dieses Beispiel und nutzen die Python-Maschinerie, um das gleiche Ergebnis wie oben mit nur einer Zeile Code zu erhalten!</p>
 <p>Für die Durchführung eines <span class="math notranslate nohighlight">\(\chi^2\)</span> Anpassungsgüte-Test in Python durchzuführen, verwenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chisquare()</span></code>. Wir geben zwei Vektoren als Daten ein: <code class="docutils literal notranslate"><span class="pre">data['beobachtete</span> <span class="pre">Häufigkeit']</span></code> und <code class="docutils literal notranslate"><span class="pre">data['erwartete</span> <span class="pre">Häufigkeit']</span></code>.</p>
 <div class="cell docutils container">
@@ -1668,7 +1818,7 @@ Name: religion, dtype: int64
 <span class="c1"># always reload modules</span>
 <span class="o">%</span><span class="k">autoreload</span> 2
 <span class="c1"># black formatter for jupyter notebooks</span>
-<span class="c1">#%load_ext nb_black</span>
+<span class="c1"># %load_ext nb_black</span>
 <span class="c1"># black formatter for jupyter lab</span>
 <span class="o">%</span><span class="k">load_ext</span> lab_black
 
@@ -1683,13 +1833,13 @@ The lab_black extension is already loaded. To reload it, use:
   %reload_ext lab_black
 
 ---------------------------------
-Working on the host: Joachims-MacBook-Pro.local
+Working on the host: imarevic-pc
 
 ---------------------------------
-Python version: 3.10.2 | packaged by conda-forge | (main, Feb  1 2022, 19:30:18) [Clang 11.1.0 ]
+Python version: 3.10.9 | packaged by conda-forge | (main, Feb  2 2023, 20:20:04) [GCC 11.3.0]
 
 ---------------------------------
-Python interpreter: /opt/miniconda3/envs/srh/bin/python
+Python interpreter: /home/imarevic/anaconda3/envs/srh/bin/python
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 864x432 with 0 Axes&gt;
@@ -1697,10 +1847,10 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="der-chi-quadrat-unabhangigkeitstest">
-<h2>Der Chi-Quadrat-Unabhängigkeitstest<a class="headerlink" href="#der-chi-quadrat-unabhangigkeitstest" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="der-chi-quadrat-unabhangigkeitstest">
+<h2>Der Chi-Quadrat-Unabhängigkeitstest<a class="headerlink" href="#der-chi-quadrat-unabhangigkeitstest" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1714,8 +1864,8 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 </div>
 <p>Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest</strong> ist eine inferentielle Methode, um zu entscheiden, ob ein Zusammenhang zwischen zwei Variablen besteht. Ähnlich wie bei anderen Hypothesentests besagt die Nullhypothese, dass die beiden Variablen nicht miteinander verbunden sind. Im Gegensatz dazu besagt die Alternativhypothese, dass die beiden Variablen miteinander verbunden sind.</p>
 <p>Es sei daran erinnert, dass statistisch <strong>abhängige Variablen</strong> als <strong>assoziierte Variablen</strong> bezeichnet werden. Im Gegensatz dazu werden nicht-assoziierte Variablen als statistisch unabhängige Variablen bezeichnet. Erinnern Sie sich auch an das Konzept der <a href="https://de.wikipedia.org/wiki/Kontingenztafel">Kontingenztabellen</a> (auch als Zwei-Wege-Tabellen oder Kreuztabellen bezeichnet), in denen die Häufigkeitsverteilungen von bivariaten Daten dargestellt werden.</p>
-<div class="section" id="chi-2-unabhangigkeitstest">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest<a class="headerlink" href="#chi-2-unabhangigkeitstest" title="Permalink to this headline">¶</a></h3>
+<section id="chi-2-unabhangigkeitstest">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest<a class="headerlink" href="#chi-2-unabhangigkeitstest" title="Permalink to this headline">#</a></h3>
 <p>Die Grundidee des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> besteht darin, die <strong>beobachteten Häufigkeiten</strong> in einer Kontingenztabelle mit den <strong>erwarteten Häufigkeiten</strong> zu vergleichen, unter der Annahme das die Nullhypothese der Nicht-Assoziation wahr ist. Die erwartete Häufigkeit für jede Zelle einer Kontingenztabelle ist gegeben durch</p>
 <div class="math notranslate nohighlight">
 \[E = \frac{R\times C}{n} \text{,}\]</div>
@@ -1767,9 +1917,9 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 <div class="math notranslate nohighlight">
 \[\chi^2 = \frac{(141 - 112,14)^2}{112,14} + \frac{(68 - 97,45)^2}{97,45} + \frac{(4 - 3,4)^2}{3,4}  + \cdots + \frac{(86 - 100,56)^2}{100,56} + \frac{(101 - 87,39)^2}{87,39} + \frac{(4 - 3,05)^2}{3,05}\]</div>
 <p>Wenn die Nullhypothese wahr ist, sind die beobachtete und die erwartete Häufigkeit ungefähr gleich, was zu einem kleinen Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik führt und somit <span class="math notranslate nohighlight">\(H_0\)</span> unterstützt. Ist der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik jedoch groß, liefern die Daten Beweise gegen <span class="math notranslate nohighlight">\(H_0\)</span>. In den nächsten Abschnitten wird weiter erörtert, wie der Wert der <span class="math notranslate nohighlight">\(\chi^2\)</span>-Teststatistik im Rahmen der Hypothesentests zu bewerten ist.</p>
-</div>
-<div class="section" id="chi-2-unabhangigkeitstest-ein-beispiel">
-<h3><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel<a class="headerlink" href="#chi-2-unabhangigkeitstest-ein-beispiel" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="chi-2-unabhangigkeitstest-ein-beispiel">
+<h3><span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest: Ein Beispiel<a class="headerlink" href="#chi-2-unabhangigkeitstest-ein-beispiel" title="Permalink to this headline">#</a></h3>
 <p>Um praktische Erfahrungen zu sammeln, wenden wir den <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest in einer Übung an. Dazu laden wir den <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz. Sie können die Datei <code class="docutils literal notranslate"><span class="pre">students.csv</span></code> <a href="https://userpage.fu-berlin.de/soga/200/2010_data_sets/students.csv">hier</a> herunterladen. Importieren Sie den Datensatz und geben Sie ihm einen passenden Namen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1781,9 +1931,9 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 </div>
 <p>Der <code class="docutils literal notranslate"><span class="pre">students</span></code> Datensatz besteht aus <span class="math notranslate nohighlight">\(8239\)</span> Zeilen, von denen jede einen bestimmten Studenten repräsentiert, und <span class="math notranslate nohighlight">\(16\)</span> Spalten, von denen jede einer Variable/einem Merkmal entspricht, das sich auf diesen bestimmten Studenten bezieht. Diese selbsterklärenden Variablen sind: <em>stud_id, name, gender, age, height, weight, religion, nc_score, semester, major, minor, score1, score2, online_tutorial, graduated, salary.</em></p>
 <p>In dieser Übung wollen wir untersuchen, <strong>ob es einen Zusammenhang zwischen den Variablen <code class="docutils literal notranslate"><span class="pre">gender</span></code> und <code class="docutils literal notranslate"><span class="pre">major</span></code> gibt, oder mit anderen Worten, wir wollen wissen, ob männliche Studenten andere Studienfächer bevorzugen als weibliche Studenten.</strong></p>
-</div>
-<div class="section" id="id2">
-<h3>Vorbereitung der Daten<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3>Vorbereitung der Daten<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Wir beginnen mit der Datenaufbereitung. Da wir nicht den gesamten Datensatz von <span class="math notranslate nohighlight">\(8239\)</span> Einträgen bearbeiten wollen, wählen wir zufällig <span class="math notranslate nohighlight">\(865\)</span> Studenten aus dem Datensatz aus. Der erste Schritt der Datenvorbereitung besteht darin, die interessierenden Daten in Form einer Kontingenztabelle darzustellen. Pandas bietet die Funktion <code class="docutils literal notranslate"><span class="pre">crosstab()</span></code>, die diese Aufgabe übernehmen wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1860,7 +2010,8 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">observed_frequencies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
-    <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;major&quot;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">],</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 <span class="n">observed_frequencies</span>
 </pre></div>
 </div>
@@ -1959,7 +2110,10 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">expected_frequencies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2049,9 +2203,9 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 </div>
 <p>Sobald wir die erwarteten Häufigkeiten kennen, müssen wir zwei Annahmen überprüfen. Erstens müssen wir sicherstellen, dass alle erwarteten Häufigkeiten <span class="math notranslate nohighlight">\(1\)</span> oder größer sind, und zweitens, dass höchstens <span class="math notranslate nohighlight">\(20 \%\)</span> der erwarteten Häufigkeiten kleiner als <span class="math notranslate nohighlight">\(5\)</span> sind. Durch einen Blick auf die Tabelle können wir bestätigen, dass beide Annahmen erfüllt sind.</p>
 <p>Jetzt haben wir alle Daten, die wir für einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest durchzuführen.</p>
-</div>
-<div class="section" id="id3">
-<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id3">
+<h3>Überprüfung der Hypothesen<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>Zur Durchführung des <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstests</strong> folgen wir dem Verfahren der schrittweisen Durchführung von Hypothesentests. Der <strong><span class="math notranslate nohighlight">\(\chi^2\)</span>-Unabhängigkeitstest</strong> folgt demselben schrittweisen Verfahren wie in den vorangegangenen Abschnitten beschrieben.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -2154,14 +2308,16 @@ Python interpreter: /opt/miniconda3/envs/srh/bin/python
 <p>Der <span class="math notranslate nohighlight">\(p\)</span>-Wert ist kleiner als das angegebene Signifikanzniveau von <span class="math notranslate nohighlight">\(0,05\)</span>; wir verwerfen <span class="math notranslate nohighlight">\(H_0\)</span>. Die Testergebnisse sind statistisch signifikant auf dem <span class="math notranslate nohighlight">\(5 \%\)</span>-Niveau und liefern einen sehr starken Beweis gegen die Nullhypothese.</p>
 <p><strong>Schritt 6: Interpretieren Sie das Ergebnis des Hypothesentests</strong></p>
 <p><span class="math notranslate nohighlight">\(p=4,67888886 \cdot 10^{-15}\)</span>. Bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> lassen die Daten den Schluss zu, dass es einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach gibt</p>
-</div>
-<div class="section" id="id4">
-<h3>Hypothesentests in Python<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id4">
+<h3>Hypothesentests in Python<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
 <p>Wir haben gerade einen <span class="math notranslate nohighlight">\(\chi^2\)</span> Unabhängigkeitstest manuell durchgeführt. Wir können dasselbe in Python mit nur einer Zeile Code tun!</p>
 <p>Dazu wenden wir die Funktion <code class="docutils literal notranslate"><span class="pre">chi2_contingency()</span></code> an. Wir achten darauf die Spalte und die Reihe <code class="docutils literal notranslate"><span class="pre">All</span></code> zu exkludieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span><span class="n">observed_frequencies</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stat</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dof</span><span class="p">,</span> <span class="n">expected</span> <span class="o">=</span> <span class="n">chi2_contingency</span><span class="p">(</span>
+    <span class="n">observed_frequencies</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;All&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;p- Wert :&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Freiheitsgrade :&quot;</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;chi^2 :&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="p">)</span>
@@ -2177,9 +2333,9 @@ chi^2 : 76.42971653913814
 </div>
 </div>
 <p>Perfekt! Vergleichen Sie die Ausgabe der Funktion <code class="docutils literal notranslate"><span class="pre">chi2_contingency()</span></code> mit unserem Ergebnis von oben. Auch hier können wir zu dem Schluss kommen, dass die Daten bei einem Signifikanzniveau von <span class="math notranslate nohighlight">\(5 \%\)</span> sehr starke Anhaltspunkte dafür liefern, dass es einen Zusammenhang zwischen dem Geschlecht und dem Hauptstudienfach gibt.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2193,7 +2349,7 @@ chi^2 : 76.42971653913814
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./Kapitel06"
         },
         predefinedOutput: true
@@ -2203,9 +2359,11 @@ chi^2 : 76.42971653913814
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="04_Standardabweichung_der_Grundgesamtheit.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2221,24 +2379,28 @@ chi^2 : 76.42971653913814
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By ixians<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By ixians<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
