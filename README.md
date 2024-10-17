@@ -52,14 +52,20 @@ AN **HTML version** of the book can be built using the following command:
 
 `jupyter-book build notebooks/` 
 
-Make sure that you are in the right directory so that `notebooks/` yields to the place where the `_config.yml` and `_toc.yml` are found. 
-Then, after the successful build you can find the hmtl files in `repo-name/notebooks/_build/html/`. If you want to build individual chapters you need to specifiy a `_config.yml` and `_toc.yml` within each chaptes directory. 
+Make sure that you are in the right directory so that `notebooks/` yields to the place where the `_config.yml` and `_toc.yml` are found. Also please note that when you make many changes to the individual notebooks regarding the cache:
+
+- please set the `execute_notebooks: force` in the `_conig.yml` when many chnages made
+- please set `execute_notebooks: cache` on small rebuilds
+
+Then, after the successful build you can find the hmtl files in `repo-name/notebooks/_build/html/`. If you want to build individual chapters you need to specifiy a `_config.yml` and `_toc.yml` within each chapters directory. 
 
 A ***PDF version*** of the book can be built with the following command:
 
 `jupyter-book build notebooks/ --builder pdfhtml`
 
 This builds a pdf version from the previously created html files by emulating a browser (chromium).After the build completes, the pdf can be found in `repo-name/notebooks/_build/pdf/`
+
+**Note:** after the pdf has been built, the HTML Version has been modified as an intermediate step, thus if the HTML is needed again, you need to trigger the HTML build again afterwards.
  
 ## Push to repo
 `ghp-import -n -p -f notebooks/_build/html`
