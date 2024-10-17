@@ -109,6 +109,16 @@ parts:
       - file: Aufgaben/Kapitel09/logit_funktion
       - file: Aufgaben/Kapitel09/logodds
       - file: Aufgaben/Kapitel09/logregmodell
+  - caption: Entscheidungsbäume
+    chapters:   
+    - file: Lernziele/Kapitel10_Lernziele
+    - file: Kapitel10/01_DecisionTrees
+    - file: Kapitel10/02_BaggingBoosting
+    - file: Kapitel10/03_RandomForest
+    - file: Aufgaben/Kapitel10/Aufgaben
+      sections:
+      - file: Aufgaben/Kapitel10/decision_trees
+      - file: Aufgaben/Kapitel10/bagging_and_random_forests
   - caption: Literaturverzeichnis
     chapters:
     - file:  Literaturverzeichnis

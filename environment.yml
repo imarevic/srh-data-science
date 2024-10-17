@@ -18,6 +18,7 @@ dependencies:
 - folium
 - openpyxl
 - pyppeteer
+- dtreeviz
 
 - pip:
   - jupyter-book
